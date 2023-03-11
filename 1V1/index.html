@@ -1,0 +1,129 @@
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+	<link href="./css/main.css" rel="stylesheet">
+	<title>Document</title>
+</head>
+
+<body>
+	<!--Streamborders-->
+	<img id="Background" src="./images/Twitch Streams.png" alt="Twitch Streams" class="logo">
+	<!--Topbar player-containers-->
+	<div class="MainClass">
+		<div class="PlayerContainers" id="PlayerContainers" style="opacity:0;transition:opacity 0.5s linear;">
+			<div class="Player1Container" id="Player1Container">
+				<div class="Player1Class" id="Player1Class">
+					<img src="./images/Placeholder.png" class="Player1Image" id="Player1Image">
+					<span class="Player1Name" id="Player1Name">HypersonicSharkz</span>
+					<span class="Player1Rank" id="Player1Rank">#0 Global | #0 NaN</span>
+				</div>
+			</div>
+			<div class="Player2Container" id="Player2Container">
+				<div class="Player2Class" id="Player2Class">
+					<img src="./images/Placeholder.png" class="Player2Image" id="Player2Image">
+					<span class="Player2Name" id="Player2Name">HypersonicSharkz</span>
+					<span class="Player2Rank" id="Player2Rank">#0 Global | #0 NaN</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="DataClass" style="
+		display: flex;
+		flex-direction: row;
+		align-content: center;
+	">
+		<div
+			style="position: absolute;background-color: #40404075;width: 892px;height: 50px;overflow: hidden;top: 165px;left: 65px;z-index: -100;backdrop-filter: blur(2px);display: flex;align-content: center;transition: all 0.5s ease;">
+			<p style="
+		color: white;
+		font-family: 'Poppins';
+		font-size: 16px;
+		position: relative;
+		left: 14px;
+		line-height: 18px;
+	">Text</p>
+		</div>
+	</div> -->
+
+	<!--Point-bar-->
+	<section class="points" id="points" style="position: absolute;top: 4.9%;left: 29%;z-index:2;">
+		<section class="leftPoints" id="leftPoints" style="margin-top: 16px;opacity:0;">
+			<img class="left5 fade-inImages" id="ll5" src="./images/LeftNoPoint.png"
+				style="position: absolute;left: -40px;opacity: 0;">
+			<img class="left4 fade-inImages" id="lu4" src="./images/LeftTopNoPoint.png"
+				style="position: absolute;left: -5px;top: -25px;opacity: 0;">
+			<img class="left3 fade-inImages" id="ll4" src="./images/LeftNoPoint.png"
+				style="position: absolute;left: 30px;opacity: 0;">
+			<img class="left2 fade-inImages" id="lu3" src="./images/LeftTopNoPoint.png"
+				style="position: absolute;left: 65px;top: -25px;opacity: 0;">
+			<img class="left1 fade-inImages" id="ll3" src="./images/LeftNoPoint.png"
+				style="position: absolute;left: 100px;opacity: 0;">
+			<img class="left1 fade-inImages" id="lu2" src="./images/LeftTopNoPoint.png"
+				style="position: absolute;left: 135px;top: -25px;opacity: 0;">
+			<img class="left1 fade-inImages" id="ll2" src="./images/LeftNoPoint.png"
+				style="position: absolute;left: 170px;opacity: 0;">
+			<img class="left1 fade-inImages" id="lu1" src="./images/LeftTopNoPoint.png"
+				style="position: absolute;left: 205px;top: -25px;opacity: 0;">
+			<img class="left1 fade-inImages" id="ll1" src="./images/LeftNoPoint.png"
+				style="position: absolute;left: 240px;opacity: 0;">
+		</section>
+		<section class="rightPoints" id="rightPoints" style="position: absolute;margin-left: 510px;opacity:0;">
+			<img class="right1 fade-inImages" id="rl1" src="./images/RightNoPoint.png"
+				style="position: absolute;opacity: 0;">
+			<img class="right2 fade-inImages" id="ru1" src="./images/RightTopNoPoint.png"
+				style="position: absolute;left: 35px;top: -40px;opacity: 0;">
+			<img class="right3 fade-inImages" id="rl2" src="./images/RightNoPoint.png"
+				style="position: absolute;left: 70px;opacity: 0;">
+			<img class="right4 fade-inImages" id="ru2" src="./images/RightTopNoPoint.png"
+				style="position: absolute;left: 105px;top: -40px;opacity: 0;">
+			<img class="right5 fade-inImages" id="rl3" src="./images/RightNoPoint.png"
+				style="position: absolute;left: 140px;opacity: 0;">
+			<img class="right6 fade-inImages" id="ru3" src="./images/RightTopNoPoint.png"
+				style="position: absolute;left: 175px;top: -40px;opacity: 0;">
+			<img class="right7 fade-inImages" id="rl4" src="./images/RightNoPoint.png"
+				style="position: absolute;left: 210px;opacity: 0;">
+			<img class="right8 fade-inImages" id="ru4" src="./images/RightTopNoPoint.png"
+				style="position: absolute;left: 245px;top: -40px;opacity: 0;">
+			<img class="right9 fade-inImages" id="rl5" src="./images/RightNoPoint.png"
+				style="position: absolute;left: 280px;opacity: 0;">
+		</section>
+	</section>
+
+	<!--Playerscores-->
+	<div class="PlayerBounds" id="PlayerBounds" style="opacity:0;">
+		<div class="Player1Classs" id="Player1Classs">
+			<span class="Player1ACC" id="Player1ACC">0.00%</span>
+			<span class="Player1Combo" id="Player1Combo">0x</span>
+			<span class="Player1FC" id="Player1FC">FC</span>
+		</div>
+		<div class="Player2Classs" id="Player2Classs">
+			<span class="Player2ACC" id="Player2ACC">0.00%</span>
+			<span class="Player2Combo" id="Player2Combo">0x</span>
+			<span class="Player2FC" id="Player2FC">FC</span>
+		</div>
+	</div>
+
+	<!-- Current song -->
+	<div class="SongBox" id="SongBox" style="opacity: 0;">
+		<div class="SongCard" id="SongCard">
+			<div class="SongCover" id="SongCover"
+				style="background: url(&quot;https://eu.cdn.beatsaver.com/43304202ec7681e52b4026313c7ab9099be2890d.jpg&quot;) 0% 0% / cover; border-color: rgb(0, 128, 85);">
+			</div>
+			<div class="SongInfo" id="SongInfo" style="border-color: rgb(0, 128, 85);"></div>
+			<div class="DiffTag" id="DiffTag" style="background: rgb(0, 128, 85);"></div>
+			<span class="DiffText" id="DiffText">Easy</span>
+			<span class="SongArtist" id="SongArtist">RoughSketch</span>
+			<span class="SongTitle" id="SongTitle">666 - (Nanodesu's Elect"6" Swing Bootleg)</span>
+			<span class="SongMapper" id="SongMapper">Bitz &amp; Luck</span>
+			<span class="SongKey" id="SongKey">2576d</span>
+			<span class="SongLength" id="SongLength">2:39</span>
+			<span class="SongPick" id="SongPick">Picked by: Hawk</span>
+		</div>
+	</div>
+	<script src="./init.js"></script>
+	<script src="./scoreLogic.js"></script>
+</body>
+
+</html>

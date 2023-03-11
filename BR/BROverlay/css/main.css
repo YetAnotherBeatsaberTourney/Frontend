@@ -1,0 +1,455 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  overflow:hidden; 
+}
+.BodyDiv {
+  width: 100%;
+  height: 1081px;
+  background: rgba(255,255,255,0);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.CastersDiv {
+  /* position: absolute; */
+  width: 314px;
+  height: 248px;
+  opacity: 1;
+  overflow: hidden;
+  top: 834px;
+}
+.CastersBG {
+  width: 314px;
+  height: 247px;
+  /* background: linear-gradient(rgba(14,14,14,1) 80%, rgb(39, 10, 53)); */
+  opacity: 1;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.CastersText {
+  width: 143px;
+  color: rgba(255,255,255,1);
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-size: 26px;
+  padding-left: 10px;
+  opacity: 1;
+  text-align: left;
+}
+.Top15Div {
+  width: 313px;
+  height: 1073px;
+  opacity: 1;
+  position: absolute;
+  top: 7px;
+  left: 0px;
+  overflow: hidden;
+}
+.Top1Div {
+  width: 315px;
+  height: 54px;
+  background: linear-gradient(rgba(255,215,0,1), rgba(97,82,0,1));
+  opacity: 1;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  overflow: hidden;
+}
+.Top2Div {
+  width: 315px;
+  height: 54px;
+  background: linear-gradient(rgba(255,255,255,1), rgba(79,79,79,1));
+  opacity: 1;
+  position: absolute;
+  top: 106px;
+  left: 0px;
+  overflow: hidden;
+}
+.Top3Div {
+  width: 315px;
+  height: 54px;
+  background: linear-gradient(rgba(205,127,50,1), rgba(62,38,14,1));
+  opacity: 1;
+  position: absolute;
+  top: 162px;
+  left: 0px;
+  overflow: hidden;
+}
+.Top15BG {
+  width: 313px;
+  height: 834px;
+  background: linear-gradient(rgb(14 14 14 / 80%) 0%, rgb(64, 16, 87));
+  opacity: 1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: -2;
+}
+.Top15Text {
+  width: 209px;
+  padding-left: 99px;
+  color: rgba(255,255,255,1);
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-size: 32px;
+  opacity: 1;
+  text-align: center;
+}
+.RightDiv {
+  width: 314px;
+  height: 1081px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 1607px;
+  overflow: hidden;
+}
+.Bottom15BG {
+  /* position: absolute; */
+  width: 314px;
+  height: 834px;
+  background: linear-gradient(rgb(14 14 14 / 80%) 0%, rgb(64, 16, 87));
+  opacity: 1;
+  overflow: hidden;
+}
+.SongBox {
+  position: absolute;
+  top: 855px;
+  opacity: 1;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+  z-index:10000;
+}
+.SongBoxFade {
+  width: 313px;
+  height: 237px;
+  background: linear-gradient(#ffffff00 80%, #6f89a3);
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  z-index: 2;
+}
+.SongCover {
+  width: 316px;
+  height: 246px;
+  background: url("../images/placeholder.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1000;
+  top: -28px;
+  box-shadow: inset 0 0 0 1000px rgb(0 0 0 / 60%);
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+}
+.DiffLabel {
+  width: 67px;
+  height: 26px;
+  background: rgba(0,128,85,1);
+  opacity: 1;
+  position: absolute;
+  top: 184px;
+  left: 11px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  overflow: hidden;
+  z-index: 3;
+  transition-timing-function: ease-in-out;
+  transition: background 1s;
+}
+.DiffText {
+  width: 68px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  padding-top: 3px;
+  font-family: Poppins;
+  font-size: 13px;
+  opacity: 1;
+  text-align: center;
+  z-index: 4;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+}
+.SongTitle {
+  width: 292px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 5px;
+  left: 11px;
+  font-family: Poppins;
+  font-weight: Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+  z-index: 4;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent);
+}
+.SongArtist {
+  width: 203px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: -18px;
+  left: 11px;
+  font-family: Poppins;
+  font-weight: Regular;
+  font-size: 15px;
+  opacity: 1;
+  text-align: left;
+  z-index: 4;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+}
+.SongMapper {
+  width: 292px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 160px;
+  left: 11px;
+  font-family: Poppins;
+  font-size: 14px;
+  opacity: 1;
+  text-align: left;
+  z-index: 4;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+}
+.MapCode {
+  width: 49px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 188px;
+  left: 253px;
+  font-family: Poppins;
+  font-weight: Regular;
+  font-size: 13px;
+  opacity: 1;
+  text-align: right;
+  z-index: 3;
+  transition-timing-function: ease-in-out;
+  transition: opacity 1s;
+}
+.CoverGradient {
+  width: 313px;
+  height: 237px;
+  background: linear-gradient(rgb(14 14 14 / 48%) 75%, rgb(255 0 0 / 54%));
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: 2;
+	transition-timing-function: ease-in-out;
+	transition: opacity 1s;
+}
+.Bottom15Text {
+  width: 209px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 8px;
+  left: 52px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-size: 32px;
+  opacity: 1;
+  text-align: center;
+  z-index: 3;
+}
+.SpectatingDiv {
+  width: 638px;
+  height: 48px;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 326px;
+  overflow: hidden;
+}
+.SpectatingTextDiv {
+  width: 201px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.SpectatedPlayerDiv {
+  width: 427px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 211px;
+  overflow: hidden;
+}
+.SpectatingText {
+  width: 217px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  left: 11px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-weight: SemiBold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.CurrentPlayer {
+  width: 217px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  left: 220px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-weight: SemiBold;
+  font-size: 30px;
+  text-transform: uppercase;
+  opacity: 1;
+  text-align: left;
+	transition-timing-function: ease-in-out;
+	transition: opacity 0.5s;
+}
+.PlayersRemDiv {
+  width: 404px;
+  height: 48px;
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 1189px;
+  overflow: hidden;
+}
+.RemainingTextDiv {
+  width: 74px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.PlayersRemTextDiv {
+  width: 319px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 85px;
+  overflow: hidden;
+}
+.PlayerRemText {
+  width: 309px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  left: 100px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-weight: SemiBold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.PlayersRemCountText {
+  width: 74px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  text-shadow: 0px 5px 4px rgb(0 0 0 / 44%);
+  font-family: Poppins;
+  font-weight: SemiBold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: center;
+  transition-timing-function: ease-in-out;
+  transition: opacity 0.5s;
+}
+.GridDiv {
+  width: 1920px;
+  height: 1080px;
+  background: url("../images/borders.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+
+.ACCGoal {
+  width: 404px;
+  height: 48px;
+  opacity: 1;
+  position: absolute;
+  top: 60px;
+  left: 1189px;
+  overflow: hidden;
+}
+.ACCGoalText {
+  width: 85px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 126px;
+  overflow: hidden;
+}
+.ACCText {
+  width: 183px;
+  height: 48px;
+  background: rgba(0,0,0,0.8700000047683716);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 221px;
+  overflow: hidden;
+}
+.ACCGoalSpan {
+  width: 309px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  left: 234px;
+  text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+  font-family: Poppins;
+  font-weight: SemiBold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.ACCGoalTextSpan {
+  min-width: 85px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 2px;
+  left: 126px;
+  text-shadow: 0px 5px 4px rgb(0 0 0 / 44%);
+  font-family: Poppins;
+  font-size: 30px;
+  opacity: 0;
+  text-align: center;
+  transition-timing-function: ease-in-out;
+  transition: opacity 0.5s;
+}

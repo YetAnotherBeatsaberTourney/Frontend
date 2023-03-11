@@ -1,0 +1,31 @@
+<html><head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+  <link href="./css/Intermission.css" rel="stylesheet">
+  <title>Intermission</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="./js/init.js"></script>
+</head>
+<body>
+    <div id="MainDiv">
+      <marquee class="SongTitle" behavior="scroll" direction="left" scrollamount="4" scrolldelay="5"><h1 id="SongTitle"></h1></marquee>
+      <img class="Logo" id="Logo" src="./images/Logo.png">
+    </div>    
+  </body>
+  <script>
+    $(document).ready(function () {
+    setCountdown();
+    setSong();
+  setInterval(function () {
+    setSong();
+  }, 5000);
+});
+
+function setSong() {
+    $.get("../Snip/Snip.txt", function (data) {
+      if (data != $("#SongTitle").text()) {
+        $("#SongTitle").text(data);
+      }
+    });
+}
+  </script>
+</html>

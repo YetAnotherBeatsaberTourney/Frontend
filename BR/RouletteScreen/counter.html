@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Playercount-screen</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+    <style>
+        #playercount {
+            color: white;
+            text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.4399999976158142);
+            font-family: Poppins;
+            font-weight: 900;
+            font-size: 50px;
+            opacity: 1;
+            text-align: center;
+            transition-timing-function: ease-in-out;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="playercount">0</div>
+    <script>
+        let userCount;
+        const ws = new WebSocket('wss://api.danesaber.cf:2224');
+        ws.onopen = function () {
+            console.log("Connected to Relay-server");
+        };
+        ws.onmessage = async function (event) {
+            jsonObj = JSON.parse(event.data);
+            if (jsonObj.Type == 6) { //Update the playercount on this one
+                if (jsonObj.command == "updateScore") {
+                    if (jsonObj.alive == "false") {
+                        userCount = jsonObj.count;
+                        document.getElementById("playercount").style.opacity = "0";
+                        setTimeout(function () {
+                            document.getElementById("playercount").innerHTML = userCount;
+                            document.getElementById("playercount").style.opacity = "1";
+                        }, 500);
+                    }
+                }
+            }
+            if (jsonObj.Type == 7) { //Set the first value, when the match is created in the WebPanel
+                userCount = jsonObj.count;
+                document.getElementById("playercount").style.opacity = "0";
+                setTimeout(function () {
+                    document.getElementById("playercount").innerHTML = userCount;
+                    document.getElementById("playercount").style.opacity = "1";
+                }, 500);
+            }
+        };
+    </script>
+</body>
+
+</html>

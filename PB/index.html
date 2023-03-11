@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+    <title>P&amp;B</title>    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="./js/logic.js"></script>
+  </head>
+  <body>
+    <div class="MainClass">
+      <!-- <div class="BGImage"></div> -->
+			<div class="PlayerContainers" id="PlayerContainers">
+        <div class="Player1Container" id="Player1Container">
+          <div class="Player1Class" id="Player1Class">
+            <img src="./images/Placeholder.png" class="Player1Image" id="Player1Image">
+            <span class="Player1Name" id="Player1Name"></span>
+            <span class="Player1Rank" id="Player1Rank"></span>
+          </div>
+        </div>
+      
+        <div class="Player2Container" id="Player2Container">
+          <div class="Player2Class" id="Player2Class">
+              <img src="./images/Placeholder.png" class="Player2Image" id="Player2Image">
+              <span class="Player2Name" id="Player2Name"></span>
+              <span class="Player2Rank" id="Player2Rank"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+	
+		<!--Point-bar-->
+		<section class="points" id="points" style="position: absolute;top: 4.9%;left: 29%;z-index:2;">
+			<section class="leftPoints" id="leftPoints" style="margin-top: 16px;opacity:0;">
+				<img class="left5 fade-inImages" id="ll5" src="./images/LeftNoPoint.png" style="position: absolute;left: -40px;opacity: 0;">
+				<img class="left4 fade-inImages" id="lu4" src="./images/LeftTopNoPoint.png" style="position: absolute;left: -5px;top: -25px;opacity: 0;">
+				<img class="left3 fade-inImages" id="ll4" src="./images/LeftNoPoint.png" style="position: absolute;left: 30px;opacity: 0;">
+				<img class="left2 fade-inImages" id="lu3" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 65px;top: -25px;opacity: 0;">
+				<img class="left1 fade-inImages" id="ll3" src="./images/LeftNoPoint.png" style="position: absolute;left: 100px;opacity: 0;">
+				<img class="left1 fade-inImages" id="lu2" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 135px;top: -25px;opacity: 0;">
+				<img class="left1 fade-inImages" id="ll2" src="./images/LeftNoPoint.png" style="position: absolute;left: 170px;opacity: 0;">
+				<img class="left1 fade-inImages" id="lu1" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 205px;top: -25px;opacity: 0;">
+				<img class="left1 fade-inImages" id="ll1" src="./images/LeftNoPoint.png" style="position: absolute;left: 240px;opacity: 0;">
+			</section>
+			<section class="rightPoints" id="rightPoints" style="position: absolute;margin-left: 510px;opacity:0;">
+				<img class="right1 fade-inImages" id="rl1" src="./images/RightNoPoint.png" style="position: absolute;opacity: 0;">
+				<img class="right2 fade-inImages" id="ru1" src="./images/RightTopNoPoint.png" style="position: absolute;left: 35px;top: -40px;opacity: 0;">
+				<img class="right3 fade-inImages" id="rl2" src="./images/RightNoPoint.png" style="position: absolute;left: 70px;opacity: 0;">
+				<img class="right4 fade-inImages" id="ru2" src="./images/RightTopNoPoint.png" style="position: absolute;left: 105px;top: -40px;opacity: 0;">
+				<img class="right5 fade-inImages" id="rl3" src="./images/RightNoPoint.png" style="position: absolute;left: 140px;opacity: 0;">
+				<img class="right6 fade-inImages" id="ru3" src="./images/RightTopNoPoint.png" style="position: absolute;left: 175px;top: -40px;opacity: 0;">
+				<img class="right7 fade-inImages" id="rl4" src="./images/RightNoPoint.png" style="position: absolute;left: 210px;opacity: 0;">
+				<img class="right8 fade-inImages" id="ru4" src="./images/RightTopNoPoint.png" style="position: absolute;left: 245px;top: -40px;opacity: 0;">
+				<img class="right9 fade-inImages" id="rl5" src="./images/RightNoPoint.png" style="position: absolute;left: 280px;opacity: 0;">
+			</section>
+		</section>
+
+
+    <div id="WrapperTemplate" style="display: none">
+      <div class="SongBox" id="SongBox">
+        <div class="SongCard" id="SongCard">
+          <div class="SongCover" id="SongCover" style="background: url(&quot;https://eu.cdn.beatsaver.com/43304202ec7681e52b4026313c7ab9099be2890d.jpg&quot;) 0% 30% / 140px;"></div>
+          <div class="SongInfo" id="SongInfo"></div>
+          <div class="DiffTag" id="DiffTag" style="background: rgb(0, 128, 85);"></div>
+          <span class="DiffText" id="DiffText"></span>
+          <span class="SongArtist" id="SongArtist"></span>
+          <span class="SongTitle" id="SongTitle"></span>
+          <span class="SongMapper" id="SongMapper"></span>
+          <span class="SongKey" id="SongKey"></span>
+          <span class="SongLength" id="SongLength"></span>
+          <span class="SongPick" id="SongPick"></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="Songs" style="opacity: 0;margin-top: 27.4%;left: 50%;transform: translate(0%, -50%);"></div>
+    
+    <marquee class="SongScrollTitle" behavior="scroll" direction="left" scrollamount="4" scrolldelay="5"><h1 id="SongScrollTitle"></h1></marquee>
+    
+		<script src="./js/scoreLogic.js"></script>
+  </body>
+</html>
