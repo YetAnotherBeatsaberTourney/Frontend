@@ -15,6 +15,9 @@
     </marquee>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script>
+	 const QueryString = window.location.search; const urlParams = new URLSearchParams(QueryString);
+	 const TimerText = urlParams.get('t');
+	 
       $(document).ready(function () {
     setCountdown();
     setSong();
@@ -32,11 +35,7 @@ function setSong() {
 }
 
 function setCountdown() {
-    $.get("./Timer.txt", function (data) {
-      if (data != $(".CountdownClock").text()) {
-        $(".CountdownClock").text(data);
-      }
-    });
+    $(".CountdownClock").text(TimerText);
 }
 
 $(document).ready(function () {

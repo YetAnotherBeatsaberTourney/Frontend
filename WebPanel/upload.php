@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="./assets/css/main.css">
   </head>
   <body class="center">	<br>
-  <p>Supports both .json and .bplist playlists (Made in-game or through BeatKhana)</p><br>
+  <p>Supports both .json and .bplist playlists</p><br>
     <form action="func.php" method="POST" enctype="multipart/form-data">
       <input type="file" name="file" style="min-width: 600px;">
       <input type="submit" value="Upload" />

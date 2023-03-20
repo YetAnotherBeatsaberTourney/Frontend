@@ -1,81 +1,128 @@
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
-    <link href="./css/main.css" rel="stylesheet">
-    <title>P&amp;B</title>    
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="./js/logic.js"></script>
-  </head>
-  <body>
-    <div class="MainClass">
-      <!-- <div class="BGImage"></div> -->
-			<div class="PlayerContainers" id="PlayerContainers">
-        <div class="Player1Container" id="Player1Container">
-          <div class="Player1Class" id="Player1Class">
-            <img src="./images/Placeholder.png" class="Player1Image" id="Player1Image">
-            <span class="Player1Name" id="Player1Name"></span>
-            <span class="Player1Rank" id="Player1Rank"></span>
-          </div>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+  <link href="./css/main.css" rel="stylesheet">
+  <title>PB</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body class="BGImage">
+  <div class="MainClass">
+    <div class="PlayerContainers">
+      <div class="Player1Container" id="Player1Container">
+        <div class="Player1Class" id="Player1Class">
+          <img src="./Images/Placeholder.png" class="Player1Image" id="Player1Image">
+          <span class="Player1Name" id="Player1Name"></span>
+          <span class="Player1Rank" id="Player1Rank"></span>
         </div>
-      
-        <div class="Player2Container" id="Player2Container">
-          <div class="Player2Class" id="Player2Class">
-              <img src="./images/Placeholder.png" class="Player2Image" id="Player2Image">
-              <span class="Player2Name" id="Player2Name"></span>
-              <span class="Player2Rank" id="Player2Rank"></span>
-          </div>
+      </div>
+
+      <div class="Player2Container" id="Player2Container">
+        <div class="Player2Class" id="Player2Class">
+          <img src="./Images/Placeholder.png" class="Player2Image" id="Player2Image">
+          <span class="Player2Name" id="Player2Name"></span>
+          <span class="Player2Rank" id="Player2Rank"></span>
         </div>
       </div>
     </div>
-	
-		<!--Point-bar-->
-		<section class="points" id="points" style="position: absolute;top: 4.9%;left: 29%;z-index:2;">
-			<section class="leftPoints" id="leftPoints" style="margin-top: 16px;opacity:0;">
-				<img class="left5 fade-inImages" id="ll5" src="./images/LeftNoPoint.png" style="position: absolute;left: -40px;opacity: 0;">
-				<img class="left4 fade-inImages" id="lu4" src="./images/LeftTopNoPoint.png" style="position: absolute;left: -5px;top: -25px;opacity: 0;">
-				<img class="left3 fade-inImages" id="ll4" src="./images/LeftNoPoint.png" style="position: absolute;left: 30px;opacity: 0;">
-				<img class="left2 fade-inImages" id="lu3" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 65px;top: -25px;opacity: 0;">
-				<img class="left1 fade-inImages" id="ll3" src="./images/LeftNoPoint.png" style="position: absolute;left: 100px;opacity: 0;">
-				<img class="left1 fade-inImages" id="lu2" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 135px;top: -25px;opacity: 0;">
-				<img class="left1 fade-inImages" id="ll2" src="./images/LeftNoPoint.png" style="position: absolute;left: 170px;opacity: 0;">
-				<img class="left1 fade-inImages" id="lu1" src="./images/LeftTopNoPoint.png" style="position: absolute;left: 205px;top: -25px;opacity: 0;">
-				<img class="left1 fade-inImages" id="ll1" src="./images/LeftNoPoint.png" style="position: absolute;left: 240px;opacity: 0;">
-			</section>
-			<section class="rightPoints" id="rightPoints" style="position: absolute;margin-left: 510px;opacity:0;">
-				<img class="right1 fade-inImages" id="rl1" src="./images/RightNoPoint.png" style="position: absolute;opacity: 0;">
-				<img class="right2 fade-inImages" id="ru1" src="./images/RightTopNoPoint.png" style="position: absolute;left: 35px;top: -40px;opacity: 0;">
-				<img class="right3 fade-inImages" id="rl2" src="./images/RightNoPoint.png" style="position: absolute;left: 70px;opacity: 0;">
-				<img class="right4 fade-inImages" id="ru2" src="./images/RightTopNoPoint.png" style="position: absolute;left: 105px;top: -40px;opacity: 0;">
-				<img class="right5 fade-inImages" id="rl3" src="./images/RightNoPoint.png" style="position: absolute;left: 140px;opacity: 0;">
-				<img class="right6 fade-inImages" id="ru3" src="./images/RightTopNoPoint.png" style="position: absolute;left: 175px;top: -40px;opacity: 0;">
-				<img class="right7 fade-inImages" id="rl4" src="./images/RightNoPoint.png" style="position: absolute;left: 210px;opacity: 0;">
-				<img class="right8 fade-inImages" id="ru4" src="./images/RightTopNoPoint.png" style="position: absolute;left: 245px;top: -40px;opacity: 0;">
-				<img class="right9 fade-inImages" id="rl5" src="./images/RightNoPoint.png" style="position: absolute;left: 280px;opacity: 0;">
-			</section>
-		</section>
+  </div>
 
+  <div id="WrapperTemplate" style="display: none">
+    <div class="SongBox" id="SongBox">
+      <div class="SongCard" id="SongCard">
+        <div class="SongCover" id="SongCover"
+          style="background: url(&quot;https://eu.cdn.beatsaver.com/43304202ec7681e52b4026313c7ab9099be2890d.jpg&quot;) 0% 0% / cover;">
+        </div>
+        <div class="SongInfo" id="SongInfo"></div>
+        <div class="DiffTag" id="DiffTag" style="background: rgb(0, 128, 85);"></div>
+        <span class="DiffText" id="DiffText"></span>
+        <span class="SongArtist" id="SongArtist"></span>
+        <span class="SongTitle" id="SongTitle"></span>
+        <span class="SongMapper" id="SongMapper"></span>
+        <span class="SongKey" id="SongKey"></span>
+        <span class="SongLength" id="SongLength"></span>
+        <span class="SongPick" id="SongPick"></span>
+      </div>
+    </div>
+  </div>
+  <!--   overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); -->
 
-    <div id="WrapperTemplate" style="display: none">
-      <div class="SongBox" id="SongBox">
-        <div class="SongCard" id="SongCard">
-          <div class="SongCover" id="SongCover" style="background: url(&quot;https://eu.cdn.beatsaver.com/43304202ec7681e52b4026313c7ab9099be2890d.jpg&quot;) 0% 30% / 140px;"></div>
-          <div class="SongInfo" id="SongInfo"></div>
-          <div class="DiffTag" id="DiffTag" style="background: rgb(0, 128, 85);"></div>
-          <span class="DiffText" id="DiffText"></span>
-          <span class="SongArtist" id="SongArtist"></span>
-          <span class="SongTitle" id="SongTitle"></span>
-          <span class="SongMapper" id="SongMapper"></span>
-          <span class="SongKey" id="SongKey"></span>
-          <span class="SongLength" id="SongLength"></span>
-          <span class="SongPick" id="SongPick"></span>
+  <div
+    style="position:absolute;top: 170px;left: 614px;width: 1164px;max-width: 1164px;max-height: 690px;display:flex;gap: 15px 59px;flex-wrap: wrap; overflow:hidden;">
+
+  </div>
+
+  <div id="Songs"
+    style="position:absolute;top: 170px;left: 614px;width: 1164px;max-width: 1164px;max-height: 690px;display:flex;gap: 15px 59px;flex-wrap: wrap; overflow:hidden;">
+    <div class="SongCard2" style="height: 125px;width: 550px;max-height:125px;max-width:550px;">
+      <div
+        style="background: url(&quot;https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg&quot;) 50% 50% / cover; width: 550px;height: 125px;border-radius: 15px;opacity:0.5;">
+      </div>
+      <div class="BlurBox"
+        style="position: relative;top: -125px; backdrop-filter: blur(10px); background-color: #0000007a;width: 550px;height: 125px;border-radius: 15px;">
+      </div>
+      <div style="display:flex;position:relative;top:-247px;left:4px;gap: 11px;">
+        <div
+          style="top:5px; left:5px; background: url(&quot;https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg&quot;) 50% 50% / cover; min-width: 116px; min-height: 116px; border-radius: 15px;">
+        </div>
+        <div style="margin-top: -6px;">
+          <p class="SongArtist SongInfo"
+            style="color:white;width: 340px; max-width:340px;margin-bottom: -23px; font-size:15px;">Lauv</p>
+          <p class="SongName SongInfo BoldText"
+            style="color:white;width: 340px; max-width:340px;margin-bottom: -18px; font-weight: 700; font-size:20px">
+            Breathe</p>
+          <p class="SongMapper SongInfo"
+            style="color:white;width: 340px; max-width:340px;margin-bottom: 3px; font-size:14px;">Mapped by NightHawk
+          </p>
+          <div class="Tags" style="display: flex; flex-direction: row;gap: 7px;">
+            <div class="TagBox DiffBox"
+              style="background: rgb(0, 128, 85); width: 67px; max-width: 67px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-wrap: nowrap;">
+              <p class="DiffName" style="color:white;font-size:13px;font-weight:500;">Easy</p>
+            </div>
+            <div class="TagBox ModifiersBox"
+              style="background: rgb(0, 128, 85); width: 67px; max-width: 67px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-wrap: nowrap;">
+              <p style="color:white;font-size:13px;font-weight:500;">DAGNFS</p>
+            </div>
+          </div>
+        </div>
+        <div style="
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    width: 51px;
+">
+          <p style="color:white;margin-top: 12px;margin-bottom: 2px;font-size: 13px;">28ded</p>
+          <div
+            style="margin-top:0px;margin-bottom:0px;background: url('./Images/Placeholder.png') 50% 50% / cover; width: 48px; height: 48px; border-radius: 15px; border:3px solid rgb(189, 183, 183);">
+          </div>
+          <p style="color:white;margin-top: 4px;font-size: 13px;">3:59</p>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="Songs" style="opacity: 0;margin-top: 27.4%;left: 50%;transform: translate(0%, -50%);"></div>
-    
-    <marquee class="SongScrollTitle" behavior="scroll" direction="left" scrollamount="4" scrolldelay="5"><h1 id="SongScrollTitle"></h1></marquee>
-    
-		<script src="./js/scoreLogic.js"></script>
-  </body>
+
+  <div class="RoundBox">
+    <div class="TextBox" id="TextBox">
+      <p class="RoundText" id="RoundText">NO ROUND SET</p>
+    </div>
+    <div class="Logo">
+      <img class="LogoImage" src="./Images/Logo.png"></img>
+    </div>
+  </div>
+
+  <script src="./js/MainHandlers.js"></script>
+  <script src="./js/PoolHandlers.js"></script>
+  <script src="./js/OverlayHandlers.js"></script>
+  <script src="./js/Helpers.js"></script>
+
+
+
+
+
+
+</body>
+
 </html>

@@ -16,13 +16,11 @@
   display:none;
   transition: all 0.5s linear;
 }
-
 #VERSUSDIV {
   opacity: 0;
   display:none;
   transition: all 0.5s linear;
 }
-
 #MATCHDIV {
   opacity: 0;
   display:none;

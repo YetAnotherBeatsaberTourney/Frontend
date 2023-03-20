@@ -1,0 +1,60 @@
+@import url('../Font/Poppins.ttf');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins;
+  overflow: hidden;
+}
+
+.BGImage {
+  width: 100%;
+  height: 100%;
+  background: url("../Images/Background.png");
+  background-repeat: no-repeat;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+  z-index: -100000;
+}
+
+
+.RoundBox {
+  position: absolute;
+  right: 40px;
+  bottom: 65px;
+  display: flex;
+}
+
+.TextBox {
+  transition: all 0.5s ease-in-out;
+  background-color: #5D4478;
+  height: 46px;
+  direction: rtl;
+  padding-left: 8px;
+  padding-right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.RoundText {
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.Logo {
+  height: 46px;
+  width: 46px;
+  background-color: #251932;
+}
+
+.LogoImage {
+  height: 100%;
+  width: auto;
+}
