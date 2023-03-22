@@ -1,5 +1,6 @@
-async function setPool(hash, diff) {
-    let SongBox = document.getElementById("SongBox").cloneNode(true);
+async function setPool(hash, diff, modifiers) {
+    console.log(modifiers);
+    let SongCard = document.getElementById("SongCard").cloneNode(true);
 
     try {
         const response = await fetch(`https://api.beatsaver.com/maps/hash/${hash}`, {
@@ -9,20 +10,20 @@ async function setPool(hash, diff) {
         });
         const data = await response.json();
 
-        SongBox.querySelector(".SongCover").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 0% 0% / cover`;
-        SongBox.querySelector(".SongArtist").innerText = data.metadata.levelAuthorName;
-        SongBox.querySelector(".SongTitle").innerText = data.metadata.songName;
-        SongBox.querySelector(".SongMapper").innerText = data.metadata.songAuthorName;
-        SongBox.querySelector(".SongKey").innerText = data.id;
-        SongBox.querySelector(".SongLength").innerText = fancyTimeFormat(data.metadata.duration);
+        SongCard.querySelector(".SongCover").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 50% 50% / cover`;
+        SongCard.querySelector(".SongBoxBG").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 50% 50% / cover`;
+        SongCard.querySelector(".SongArtist").innerText = data.metadata.levelAuthorName;
+        SongCard.querySelector(".SongName").innerText = data.metadata.songName;
+        SongCard.querySelector(".SongMapper").innerText = data.metadata.songAuthorName;
+        SongCard.querySelector(".SongKey").innerText = data.id;
+        SongCard.querySelector(".SongLength").innerText = fancyTimeFormat(data.metadata.duration);
     } catch (error) {
         console.error(error);
     }
 
-    SongBox.querySelector(".SongCard").classList.add(`SongCard${hash}`);
-    SongBox.querySelector(".SongCover").classList.add(`SongCover${hash}`);
-    SongBox.querySelector(".SongInfo").classList.add(`SongInfo${hash}`);
-    SongBox.querySelector(".SongPick").classList.add(`SongPick${hash}`);
+    SongCard.classList.add(`SongCard${hash}`);
+    SongCard.querySelector(".BlurBox").classList.add(`BlurBox${hash}`);
+    SongCard.querySelector(".SongPicker").classList.add(`SongPicker${hash}`);
 
     let diffText, diffColor;
     switch (diff.toLowerCase()) {
@@ -49,31 +50,57 @@ async function setPool(hash, diff) {
             break;
     }
 
-    SongBox.querySelector(".DiffTag").style.background = diffColor;
-    SongBox.querySelector(".DiffText").innerText = diffText;
-    document.getElementById("Songs").appendChild(SongBox);
+    SongCard.querySelector(".DiffBox").style.background = diffColor;
+    SongCard.querySelector(".DiffName").innerText = diffText;
+
+    if (modifiers) {
+        SongCard.querySelector(".ModifiersBox").style.background = diffColor;
+        SongCard.querySelector(".ModifiersText").innerText = modifiers;
+        SongCard.querySelector(".ModifiersBox").style.opacity = "1";
+    }
+
+    SongCard.style.opacity = "1";
+    document.getElementById("Songs").appendChild(SongCard);
 }
 
-function setPoolLoop(hash, diff) {
+function setPoolLoop(hash, diff, modifiers) {
     for (let i = 0; i < hash.length; i++) {
         setTimeout(function () {
+            if (modifiers) {
+            setPool(hash[i], diff[i], modifiers[i]);
+            } else {
             setPool(hash[i], diff[i]);
+            }
         }, 100 * i);
     }
+    
     setTimeout(function () {
         document.getElementById("Songs").style.opacity = "1";
-    }, 1000);
+    }, 1500);
 }
 
 function guidv4(data) {
     const isGUIDV4 = /^([a-f\d]{8}(-[a-f\d]{4}){3}-[a-f\d]{12}?)$/i.test(data);
     return isGUIDV4;
 }
+
+function setBanned(hash) {
+    document.getElementsByClassName(`BlurBox${hash}`)[0].style.background = "rgb(149 27 27 / 48%)";
+    document.getElementsByClassName(`SongPicker${hash}`)[0].style.background = "linear-gradient(180deg, #ff6161, #DF8585) border-box;";
+    document.getElementsByClassName(`SongPicker${hash}`)[0].style.opacity = "1";
+}
+
+
+function setPicked(hash) {
+    document.getElementsByClassName(`BlurBox${hash}`)[0].style.background = "rgb(40 149 27 / 48%)";
+    document.getElementsByClassName(`SongPicker${hash}`)[0].style.background = "rgb(40 149 27 / 48%)";
+    document.getElementsByClassName(`SongPicker${hash}`)[0].style.opacity = "1";
+}
+
 function setMapState(hash, state, actor) {
     const SongCard = document.getElementsByClassName(`SongCard${hash}`)[0];
-    const pick = SongCard.getElementsByClassName(`SongPick${hash}`)[0];
-    const cover = SongCard.getElementsByClassName(`SongCover${hash}`)[0];
-    const info = SongCard.getElementsByClassName(`SongInfo${hash}`)[0];
+    const BlurBox = SongCard.getElementsByClassName(`BlurBox${hash}`)[0];
+    const Picker = SongCard.getElementsByClassName(`SongPicker${hash}`)[0];
     let image;
     if (guidv4(actor)) {
         if (actor == TeamIDs[0]) {
@@ -90,32 +117,16 @@ function setMapState(hash, state, actor) {
     }
 
     if (state === 'Pick') {
-        pick.style.backgroundImage = `url('${image}')`;
-        cover.style.borderColor = '#3eff68';
-        cover.style.boxShadow = '2px 0px 8px #3eff68';
-        info.style.borderColor = '#3eff68';
-        info.style.boxShadow = '2px 0px 8px #3eff68';
-        pick.style.borderColor = '#3eff68';
-        pick.style.boxShadow = '2px 0px 8px #3eff68';
-        pick.style.opacity = '1';
+        Picker.src = image;
+        Picker.style.opacity = "1";
+        BlurBox.style.background = "rgb(40 149 27 / 48%)";
     } else if (state === 'Ban') {
-        pick.style.backgroundImage = `url('${image}')`;
-        pick.style.borderColor = '#ff1616';
-        pick.style.boxShadow = '#ff1616 2px 0px 8px';
-        cover.style.borderColor = '#ff1616';
-        cover.style.boxShadow = '#ff1616 2px 0px 8px';
-        info.style.borderColor = '#ff1616';
-        info.style.boxShadow = '#ff1616 2px 0px 8px';
-        pick.style.opacity = '1';
-        SongCard.style.opacity = '0.6';
+        Picker.src = image;
+        Picker.style.opacity = "1";
+        BlurBox.style.background = "rgb(149 27 27 / 48%)";
     } else if (state === 'Tiebreaker') {
-        pick.style.backgroundImage = "url('./Images/Tiebreaker.png')";
-        cover.style.borderColor = '#3eff68';
-        cover.style.boxShadow = '2px 0px 8px #3eff68';
-        info.style.borderColor = '#3eff68';
-        info.style.boxShadow = '2px 0px 8px #3eff68';
-        pick.style.borderColor = '#3eff68';
-        pick.style.boxShadow = '2px 0px 8px #3eff68';
-        pick.style.opacity = '1';
+        Picker.src = './Images/Tiebreaker.png';
+        Picker.style.opacity = "1";
+        BlurBox.style.background = "rgb(40 149 27 / 48%)";
     }
 }

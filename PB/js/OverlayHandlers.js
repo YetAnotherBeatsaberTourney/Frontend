@@ -14,7 +14,6 @@ function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
                 player1Container.style.opacity = 1;
                 player1Container.querySelector("#Player1Image").src = PlayerImages[0];
                 player1Container.querySelector("#Player1Name").innerText = name1;
-                player1Container.querySelector("#Player1Rank").innerText = `#${data.playerInfo.rank} Global | #${data.playerInfo.countryRank} ${data.playerInfo.country}`;
             });
 
         fetch(`https://new.scoresaber.com/api/player/${id2}/basic`)
@@ -30,7 +29,6 @@ function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
                 player2Container.style.opacity = 1;
                 player2Container.querySelector("#Player2Image").src = PlayerImages[1];
                 player2Container.querySelector("#Player2Name").innerText = name2;
-                player2Container.querySelector("#Player2Rank").innerText = `#${data.playerInfo.rank} Global | #${data.playerInfo.countryRank} ${data.playerInfo.country}`;
             });
 
     } else if (type == 2) {
@@ -43,13 +41,10 @@ function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
         const player2Container = document.getElementById("Player2Container");
         player2Container.querySelector("#Player2Image").src = image2;
         player2Container.querySelector("#Player2Name").innerText = name2;
-
-        player1Container.style.opacity = 1;
-        player2Container.style.opacity = 1;
-
     }
     
     setTimeout(() => {
+        document.getElementById("PlayerContainers").style.opacity = 1;
         document.getElementById("RoundText").outerHTML = `<div id="RoundText" class="RoundText">${FormatText(Round)}</div>`;
         document.getElementById("TextBox").style.opacity = "1";
     }, 600);

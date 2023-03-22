@@ -1,6 +1,7 @@
 function PB(hashdiff) {
     let hash = hashdiff.split("_")[0];
     let diff = hashdiff.split("_")[1];
+    let modifier = hashdiff.split("_")[2];
 
     let title = document.querySelector(`img[data-hash="${hash}"]`).getAttribute("data-title");
 
@@ -21,50 +22,69 @@ function PB(hashdiff) {
         ID2 = TeamNamesIDs[3];
     }
     Swal.fire({
-        title: 'Who\'s picking?',
-        showDenyButton: true,
-        showDenyButton: true,
-        confirmButtonText: Name1,
-        denyButtonText: Name2,
-        cancelButtonText: `Tiebreaker`,
-        confirmButtonColor: '#ff5252',
-        denyButtonColor: '#a768eb',
+        title: 'Correct map?',
+        html: `Map: <b>${title}</b>.<br>Difficulty: <b>${diff}</b>.`,
+        showDenyButton: false,
+        confirmButtonText: "Yes",
+        cancelButtonText: `No`,
         cancelButtonColor: '#464646',
         showCancelButton: true,
         allowOutsideClick: false,
-        allowEscapeKey: false,
+        allowEscapeKey: true,
     }).then((result) => {
+
         if (result.isConfirmed) {
             Swal.fire({
-                ...swalPBConfig
+                title: 'Who\'s picking?',
+                html: `Map: <b>${title}</b>.<br>Difficulty: <b>${diff}</b>`,
+                showDenyButton: true,
+                showDenyButton: true,
+                confirmButtonText: Name1,
+                denyButtonText: Name2,
+                cancelButtonText: `Tiebreaker`,
+                confirmButtonColor: '#ff5252',
+                denyButtonColor: '#a768eb',
+                cancelButtonColor: '#464646',
+                showCancelButton: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false,
             }).then((result) => {
                 if (result.isConfirmed) {
-                    ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID1 }));
-                    appendSongs(hash, diff, title, Name1);
+                    Swal.fire({
+                        html: `Map: <b>${title}</b>.<br>Difficulty: <b>${diff}</b> <br>Picker: <b>${Name1}</b>`,
+                        ...swalPBConfig
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID1 }));
+                            appendSongs(hash, diff, title, Name1, modifier);
+                        } else if (result.isDenied) {
+                            ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Ban", "map": hash, "Actor": ID1 }));
+                        } else if (result.isDismissed) {
+                            PB(hashdiff);
+                        }
+                    });
                 } else if (result.isDenied) {
-                    ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Ban", "map": hash, "Actor": ID1 }));
+                    Swal.fire({
+                        html: `Map: <b>${title}</b>.<br>Difficulty: <b>${diff}</b> <br>Picker: <b>${Name2}</b>`,
+                        ...swalPBConfig
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID2 }));
+                            appendSongs(hash, diff, title, Name2, modifier);
+                        } else if (result.isDenied) {
+                            ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Ban", "map": hash, "Actor": ID2 }));
+                        } else if (result.isDismissed) {
+                            PB(hashdiff);
+                        }
+                    });
                 } else if (result.isDismissed) {
-                    PB(hashdiff);
+                    ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Tiebreaker", "map": hash, "Actor": "0" }));
+                    appendSongs(hash, diff, title, "Tiebreaker", modifier);
                 }
             });
-        } else if (result.isDenied) {
-            Swal.fire({
-                ...swalPBConfig
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID2 }));
-                    appendSongs(hash, diff, title, Name2);
-                } else if (result.isDenied) {
-                    ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Ban", "map": hash, "Actor": ID2 }));
-                } else if (result.isDismissed) {
-                    PB(hashdiff);
-                }
-            });
-        } else if (result.isDismissed) {
-            ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Tiebreaker", "map": hash, "Actor": "0" }));
-            appendSongs(hash, diff, title, "Tiebreaker");
         }
     });
+
 }
 
 function sendToOverlay(type) {
@@ -170,9 +190,15 @@ function sendToOverlay(type) {
         var p2Score = document.getElementById("P2ScoreSlider").value;
 
         if (!PlayerIDs[3]) {
-        ws.send(JSON.stringify({ 'Type': '5', 'matchStyle': '1v1', 'command': 'updateScore', 'PlayerIds': [PlayerIDs[0], PlayerIDs[1]], 'Score': [p1Score, p2Score] }));
+            ws.send(JSON.stringify({ 'Type': '5', 'matchStyle': '1v1', 'command': 'updateScore', 'PlayerIds': [PlayerIDs[0], PlayerIDs[1]], 'Score': [p1Score, p2Score] }));
         } else {
-            ws.send(JSON.stringify({ 'Type': '5', 'matchStyle': '2v2', 'command': 'updateScore', 'TeamIds': [TeamNamesIDs[1],TeamNamesIDs[3]], 'Score': [p1Score, p2Score] }));
+            ws.send(JSON.stringify({ 'Type': '5', 'matchStyle': '2v2', 'command': 'updateScore', 'TeamIds': [TeamNamesIDs[1], TeamNamesIDs[3]], 'Score': [p1Score, p2Score] }));
         }
     }
-};
+}
+
+function sendReplay(Actor) {
+    console.log("Sending replay for " + Actor);
+    document.getElementById(`player${Actor}Replay`).setAttribute("disabled", "disabled");
+    ws.send(JSON.stringify({ 'Type': '5', 'command': 'mapReplay', 'Actor': Actor }));
+}

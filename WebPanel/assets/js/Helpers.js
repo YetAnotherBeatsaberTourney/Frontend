@@ -64,7 +64,7 @@ const swalPBConfig = {
     cancelButtonColor: '#464646',
     showCancelButton: true,
     allowOutsideClick: false,
-    allowEscapeKey: false,
+    allowEscapeKey: true,
 };
 
 const swalConfig = {

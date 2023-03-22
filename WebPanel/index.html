@@ -145,6 +145,14 @@
 													<output style="padding-left: 16px;">0</output></span>
 											</div>
 											<br>
+											<div style="display: flex;gap: 5px;margin-bottom: 5px;">
+												<button id="player1Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendReplay(1)">P1 -
+													Replay</button>
+												<button id="player2Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendReplay(2)">P2 -
+													Replay</button>
+											</div>
 											<button id="playerScore" type="button" class="btn btn-primary d-block w-100"
 												onclick="sendToOverlay('sendScore')" disabled>Send </button>
 										</form>
@@ -154,7 +162,7 @@
 									<div class="card-body p-sm-5">
 										<h2 class="text-center mb-4" id="header">Picks&Bans</h2>
 										<div class="SongDivs" id="SongDivs">
-											<img id="SongCircle" src="../PB/Images/Player2.png"
+											<img id="SongCircle" src="../PB/Images/songPlaceholder.png"
 												onclick="PB('songHashHere');" class="SongCircle"
 												style="display:none;" />
 										</div>
@@ -166,8 +174,8 @@
 										<form method="post">
 											<div class="mb-3">
 												<select required id="currentMap" class="form-control" type="text"
-													name="name" placeholder="Select a map" disabled />
-												<option value="" disabled selected>Select map</option>
+													name="name" placeholder="Select a map" disabled>
+													<option value="" disabled selected>Select map</option>
 												</select>
 											</div>
 											<div>
@@ -210,7 +218,8 @@
 												<br>
 												<button id="requestMatches" type="button"
 													class="btn btn-primary d-block w-100"
-													onclick="sendToOverlay('requestMatches')">Request match-list</button>
+													onclick="sendToOverlay('requestMatches')">Request
+													match-list</button>
 											</div>
 										</form>
 									</div>

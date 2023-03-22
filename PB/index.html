@@ -9,118 +9,74 @@
 
 <body class="BGImage">
   <div class="MainClass">
-    <div class="PlayerContainers">
+    <div class="PlayerContainers" id="PlayerContainers">
       <div class="Player1Container" id="Player1Container">
-        <div class="Player1Class" id="Player1Class">
-          <img src="./Images/Placeholder.png" class="Player1Image" id="Player1Image">
-          <span class="Player1Name" id="Player1Name"></span>
-          <span class="Player1Rank" id="Player1Rank"></span>
-        </div>
+        <img src="./Images/Placeholder.png" class="Player1Image" id="Player1Image" />
+        <b class="Player1Name" id="Player1Name">OK</b>
+        <span class="Player1Score" id="Player1Score">0</span>
+        <span class="Player1Replay" id="Player1Replay">R</span>
       </div>
-
       <div class="Player2Container" id="Player2Container">
-        <div class="Player2Class" id="Player2Class">
-          <img src="./Images/Placeholder.png" class="Player2Image" id="Player2Image">
-          <span class="Player2Name" id="Player2Name"></span>
-          <span class="Player2Rank" id="Player2Rank"></span>
-        </div>
+
+        <span class="Player2Replay" id="Player2Replay">R</span>
+
+        <span class="Player2Score" id="Player2Score">0</span>
+        <b class="Player2Name" id="Player2Name">BOOMER</b>
+          <img src="./Images/Placeholder.png" class="Player2Image" id="Player2Image" />
       </div>
     </div>
-  </div>
 
-  <div id="WrapperTemplate" style="display: none">
-    <div class="SongBox" id="SongBox">
+    <div id="WrapperTemplate" style="display: none">
       <div class="SongCard" id="SongCard">
-        <div class="SongCover" id="SongCover"
-          style="background: url(&quot;https://eu.cdn.beatsaver.com/43304202ec7681e52b4026313c7ab9099be2890d.jpg&quot;) 0% 0% / cover;">
-        </div>
-        <div class="SongInfo" id="SongInfo"></div>
-        <div class="DiffTag" id="DiffTag" style="background: rgb(0, 128, 85);"></div>
-        <span class="DiffText" id="DiffText"></span>
-        <span class="SongArtist" id="SongArtist"></span>
-        <span class="SongTitle" id="SongTitle"></span>
-        <span class="SongMapper" id="SongMapper"></span>
-        <span class="SongKey" id="SongKey"></span>
-        <span class="SongLength" id="SongLength"></span>
-        <span class="SongPick" id="SongPick"></span>
-      </div>
-    </div>
-  </div>
-  <!--   overflow: hidden; white-space: nowrap; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); -->
-
-  <div
-    style="position:absolute;top: 170px;left: 614px;width: 1164px;max-width: 1164px;max-height: 690px;display:flex;gap: 15px 59px;flex-wrap: wrap; overflow:hidden;">
-
-  </div>
-
-  <div id="Songs"
-    style="position:absolute;top: 170px;left: 614px;width: 1164px;max-width: 1164px;max-height: 690px;display:flex;gap: 15px 59px;flex-wrap: wrap; overflow:hidden;">
-    <div class="SongCard2" style="height: 125px;width: 550px;max-height:125px;max-width:550px;">
-      <div
-        style="background: url(&quot;https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg&quot;) 50% 50% / cover; width: 550px;height: 125px;border-radius: 15px;opacity:0.5;">
-      </div>
-      <div class="BlurBox"
-        style="position: relative;top: -125px; backdrop-filter: blur(10px); background-color: #0000007a;width: 550px;height: 125px;border-radius: 15px;">
-      </div>
-      <div style="display:flex;position:relative;top:-247px;left:4px;gap: 11px;">
-        <div
-          style="top:5px; left:5px; background: url(&quot;https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg&quot;) 50% 50% / cover; min-width: 116px; min-height: 116px; border-radius: 15px;">
-        </div>
-        <div style="margin-top: -6px;">
-          <p class="SongArtist SongInfo"
-            style="color:white;width: 340px; max-width:340px;margin-bottom: -23px; font-size:15px;">Lauv</p>
-          <p class="SongName SongInfo BoldText"
-            style="color:white;width: 340px; max-width:340px;margin-bottom: -18px; font-weight: 700; font-size:20px">
-            Breathe</p>
-          <p class="SongMapper SongInfo"
-            style="color:white;width: 340px; max-width:340px;margin-bottom: 3px; font-size:14px;">Mapped by NightHawk
-          </p>
-          <div class="Tags" style="display: flex; flex-direction: row;gap: 7px;">
-            <div class="TagBox DiffBox"
-              style="background: rgb(0, 128, 85); width: 67px; max-width: 67px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-wrap: nowrap;">
-              <p class="DiffName" style="color:white;font-size:13px;font-weight:500;">Easy</p>
-            </div>
-            <div class="TagBox ModifiersBox"
-              style="background: rgb(0, 128, 85); width: 67px; max-width: 67px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-wrap: nowrap;">
-              <p style="color:white;font-size:13px;font-weight:500;">DAGNFS</p>
+        <div class="SongCover" id="SongCover"></div>
+        <div class="BlurBox" id="BlurBox"></div>
+        <div class="SongBox">
+          <div class="SongBoxBG" id="SongBoxBG"></div>
+          <div class="SongInfoLeft">
+            <p class="SongArtist White Txt15 W340 Fade" id="SongArtist">Lauv</p>
+            <p class="SongName F700 White Txt20 W340 Fade" id="SongName">Breathe</p>
+            <p class="SongMapper White Txt15 W340 Fade" id="SongMapper">Mapped by NightHawk</p>
+            <div class="Tags">
+              <div class="TagBox DiffBox" id="DiffBox">
+                <p class="DiffName White Txt13" id="DiffName">Easy</p>
+              </div>
+              <div class="TagBox ModifiersBox" id="ModifiersBox">
+                <p class="ModifiersText White Txt13" id="ModifiersText"></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div style="
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-wrap: nowrap;
-    width: 51px;
-">
-          <p style="color:white;margin-top: 12px;margin-bottom: 2px;font-size: 13px;">28ded</p>
-          <div
-            style="margin-top:0px;margin-bottom:0px;background: url('./Images/Placeholder.png') 50% 50% / cover; width: 48px; height: 48px; border-radius: 15px; border:3px solid rgb(189, 183, 183);">
+          <div class="SongInfoRight">
+            <p class="SongKey White Txt13" id="SongKey">28ded</p>
+            <img src="./Images/Placeholder.png" class="SongPicker" id="SongPicker">
+            <p class="SongLength White Txt13" id="SongLength">3:59</p>
           </div>
-          <p style="color:white;margin-top: 4px;font-size: 13px;">3:59</p>
         </div>
       </div>
     </div>
-  </div>
 
 
-  <div class="RoundBox">
-    <div class="TextBox" id="TextBox">
-      <p class="RoundText" id="RoundText">NO ROUND SET</p>
+    <div id="Songs">
+
     </div>
-    <div class="Logo">
-      <img class="LogoImage" src="./Images/Logo.png"></img>
+
+
+    <div class="RoundBox">
+      <div class="TextBox" id="TextBox">
+        <p class="RoundText" id="RoundText">NO ROUND SET</p>
+      </div>
+      <div class="Logo">
+        <img class="LogoImage" src="./Images/Logo.png">
+      </div>
     </div>
+
+    <script src="./js/MainHandlers.js"></script>
+    <script src="./js/PoolHandlers.js"></script>
+    <script src="./js/OverlayHandlers.js"></script>
+    <script src="./js/Helpers.js"></script>
+
+
+
   </div>
-
-  <script src="./js/MainHandlers.js"></script>
-  <script src="./js/PoolHandlers.js"></script>
-  <script src="./js/OverlayHandlers.js"></script>
-  <script src="./js/Helpers.js"></script>
-
-
-
-
 
 
 </body>

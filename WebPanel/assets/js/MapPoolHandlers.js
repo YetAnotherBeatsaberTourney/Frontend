@@ -1,33 +1,35 @@
-function appendSongs(hash, diff, songName, name) {
+function appendSongs(hash, diff, songName, name, modifiers) {
     const songs = document.getElementById("currentMap");
     const option = document.createElement("option");
-    option.textContent = `${songName} | ${diff}`;
+    option.textContent = `${songName} | ${diff} | ${modifiers}`;
     option.value = hash;
     option.dataset.songName = songName;
     option.dataset.hash = diff;
     option.dataset.name = name;
+    option.dataset.modifiers = modifiers;
     songs.appendChild(option);
 }
 
-function setPool(hashArray, diffArray, songNameArray) {
+function setPool(hashArray, diffArray, songNameArray, modifiers) {
     const songDiv = document.getElementById("SongDivs");
     const songCircleTemplate = document.getElementById("SongCircle");
 
     hashArray.forEach((hash, index) => {
         const clone = songCircleTemplate.cloneNode(true);
         clone.classList.add(`SongCircle${hash}`);
-        clone.setAttribute("onclick", `PB('${hash}_${diffArray[index]}')`);
+        clone.setAttribute("onclick", `PB('${hash}_${diffArray[index]}_${modifiers[index]}')`);
         clone.setAttribute("data-hash", hash);
         clone.setAttribute("src", `https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg`);
 
         const diff = diffArray[index].toLowerCase();
-        const title = `${songNameArray[index]} | ${diff}`;
+        const title = `${songNameArray[index]} | ${diff} | ${modifiers[index]}`;
         const diffColor = getDiffColor(diff);
         const diffLabel = getDiffLabel(diff);
 
         clone.setAttribute("title", title);
         clone.setAttribute("data-title", songNameArray[index]);
         clone.setAttribute("data-diff", diffLabel);
+        clone.setAttribute("data-modifiers", modifiers[index]);
 
         clone.style.boxShadow = `0px 0px 10px 0px ${diffColor}`;
         clone.style.background = diffColor;
@@ -90,6 +92,7 @@ function selectLocalMapPool() {
 function setSongJSON(playlist) {
     $.getJSON("./pools/" + playlist, function (data) {
         var songList = data.songs;
+        console.log(songList)
         var songHashes = [];
         for (var i = 0; i < songList.length; i++) {
             songHashes.push(songList[i].hash);
@@ -102,13 +105,23 @@ function setSongJSON(playlist) {
         for (var i = 0; i < songList.length; i++) {
             songNames.push(songList[i].songName);
         }
+        var songModifiers = [];
+        for (var i = 0; i < songList.length; i++) {
+            if (songList[i].modifiers) {
+                console.log(songList[i].modifiers)
+                songModifiers.push(songList[i].modifiers);
+            }
+        }
+        
+
         ws.send(JSON.stringify({
             'Type': '5',
             'command': 'setPool',
             'songHash': songHashes,
-            'songDiff': diffNames
+            'songDiff': diffNames,
+            'songModifiers': songModifiers,
         }));
-        setPool(songHashes, diffNames, songNames);
+        setPool(songHashes, diffNames, songNames, songModifiers);
     });
 };
 

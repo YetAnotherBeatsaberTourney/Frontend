@@ -4,6 +4,9 @@ let PlayerIDs = [];
 let PlayerImages = [];
 let TeamImages = [];
 let TeamIDs = [];
+let TeamScores = [0, 0];
+let ReplayLeft = [1, 1];
+let Replaying = [0, 0];
 
 try {
     const TAsock = new WebSocket(relayIp);
@@ -15,7 +18,15 @@ try {
     TAsock.onmessage = async (event) => {
         const jsonObj = JSON.parse(event.data);
 
-        if (jsonObj.Type === "5") {
+        if (jsonObj.Type == 3) {
+            if (jsonObj.command === "updateMap") {
+                console.log("updateMap reached the end, but no action was taken.");
+                p1Replay(true);
+                p2Replay(true);
+            }
+        }
+
+        if (jsonObj.Type == 5) {
             if (jsonObj.command === "createUsers") {
                 if (jsonObj.matchStyle == "1v1") {
                     setOverlay(1, jsonObj.PlayerIds[0], jsonObj.PlayerNames[0], "", jsonObj.PlayerIds[1], jsonObj.PlayerNames[1], "", jsonObj.Round);
@@ -29,8 +40,11 @@ try {
                 return;
             }
             if (jsonObj.command === "setPool") {
-                setPoolLoop(jsonObj.songHash, jsonObj.songDiff);
+                setPoolLoop(jsonObj.songHash, jsonObj.songDiff, jsonObj.songModifiers);
                 return;
+            }
+            if (jsonObj.command == "updateScore") {
+                changeScoreline(jsonObj.Score);
             }
             if (jsonObj.command === "PicksAndBans") {
                 if (jsonObj.Action === "Pick") {
@@ -48,18 +62,19 @@ try {
                 console.log("PicksAndBans reached the end, but no action was taken.");
                 return;
             }
+            if (jsonObj.command === "mapReplay") {
+                mapReplay(jsonObj.Actor);
+            }
             if (jsonObj.command === "resetOverlay") {
                 document.getElementById("Songs").style.opacity = "0";
-                document.getElementById("Player1Container").style.opacity = 0;
-                document.getElementById("Player2Container").style.opacity = 0;
+                document.getElementById("PlayerContainers").style.opacity = 0;
+                document.getElementById("TextBox").style.opacity = 0;
                 setTimeout(() => {
-                    document.getElementById("Player1Rank").innerText = "";
-                    document.getElementById("Player2Rank").innerText = "";
                     $("#Songs").empty();
+                    resetReplays();
                 }, 1000);
             }
         }
-
     };
 } catch (error) {
     console.log(error);
