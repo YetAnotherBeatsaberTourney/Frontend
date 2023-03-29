@@ -171,6 +171,7 @@ function sendToOverlay(type) {
         const diffOption = selectElement.options[selectElement.selectedIndex];
         const diff = diffOption.getAttribute("data-hash").toLowerCase();
         const player = diffOption.getAttribute("data-name");
+        const modifiers = diffOption.getAttribute("data-modifiers");
         const diffValue = diff === "easy" ? 0 :
             diff === "normal" ? 1 :
                 diff === "hard" ? 2 :
@@ -181,6 +182,7 @@ function sendToOverlay(type) {
             command: 'updateMap',
             LevelId: hash,
             Diff: diffValue,
+            Modifiers: modifiers,
             MatchId: matchId,
             Player: player
         }));

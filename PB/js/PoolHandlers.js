@@ -1,13 +1,8 @@
 async function setPool(hash, diff, modifiers) {
-    console.log(modifiers);
     let SongCard = document.getElementById("SongCard").cloneNode(true);
 
     try {
-        const response = await fetch(`https://api.beatsaver.com/maps/hash/${hash}`, {
-            headers: {
-                'Access-Control-Request-Headers': 'x-requested-with'
-            }
-        });
+        const response = await fetch(`https://spi.danesaber.cf/api/bs/hash/${hash}`);
         const data = await response.json();
 
         SongCard.querySelector(".SongCover").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 50% 50% / cover`;

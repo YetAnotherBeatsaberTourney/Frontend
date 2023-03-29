@@ -13,7 +13,6 @@ try {
                 document.getElementById("RoundText").outerHTML = `<div id="RoundText" class="RoundText">${FormatText(jsonObj.Round)}</div>`;
                 document.getElementById("TextBox").style.opacity = "1";
                 }, 600);
-                return;
             }
         }
     };

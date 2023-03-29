@@ -1,4 +1,7 @@
 function appendSongs(hash, diff, songName, name, modifiers) {
+    if (modifiers == "undefined") {
+        modifiers = "None";
+    }
     const songs = document.getElementById("currentMap");
     const option = document.createElement("option");
     option.textContent = `${songName} | ${diff} | ${modifiers}`;
@@ -108,7 +111,6 @@ function setSongJSON(playlist) {
         var songModifiers = [];
         for (var i = 0; i < songList.length; i++) {
             if (songList[i].modifiers) {
-                console.log(songList[i].modifiers)
                 songModifiers.push(songList[i].modifiers);
             }
         }
