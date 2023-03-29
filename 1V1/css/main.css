@@ -310,7 +310,7 @@ body {
   display: flex;
   opacity: 0;
   position: absolute;
-  bottom: 172px;
+  bottom: 168px;
 }
 
 .LeftTugOuter {
@@ -334,7 +334,7 @@ body {
 .RightTugInner {
   width: 0px;
   height: 10px;
-  background-image: linear-gradient(-90deg, rgba(112, 112, 255, 1), rgba(204, 127, 252, 1));
+  background-image: linear-gradient(-90deg, rgba(204, 127, 252, 1),rgba(112, 112, 255, 1));
 }
 
 /* Song Card */
