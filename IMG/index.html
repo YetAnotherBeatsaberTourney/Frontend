@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap" rel="stylesheet">
+  <link href="./css/main.css" rel="stylesheet">
+  <title>IMG Generator</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+  <div id="Wrapper">
+      <div class="SongCard" id="SongCard" onclick="saveImg();">
+        <div class="SongCover" id="SongCover"></div>
+        <div class="BlurBox" id="BlurBox"></div>
+        <div class="BlurBoxLower" id="BlurBoxLower"></div>
+        <div class="SongBox">
+          <div class="SongBoxBG" id="SongBoxBG"></div>
+          <div class="SongInfoLeft">
+            <p class="SongArtist White Txt15 W340 Fade" id="SongArtist">Lauv</p>
+            <p class="SongName F700 White Txt20 W340 Fade" id="SongName">Breathe</p>
+            <p class="SongMapper White Txt15 W340 Fade" id="SongMapper">Mapped by NightHawk</p>
+            <div class="Tags">
+              <div class="TagBox DiffBox" id="DiffBox">
+                <p class="DiffName White Txt13" id="DiffName">Easy</p>
+              </div>
+              <div class="TagBox ModifiersBox" id="ModifiersBox">
+                <p class="ModifiersText White Txt13" id="ModifiersText"></p>
+              </div>
+            </div>
+          </div>
+          <div class="SongInfoRight">
+            <p class="SongKey White Txt13" id="SongKey">28ded</p>
+            <img src="./Images/Placeholder.png" class="SongPicker" id="SongPicker">
+            <p class="SongLength White Txt13" id="SongLength">3:59</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/MainHandlers.js"></script>
+    <script src="./js/Helpers.js"></script>
+</body>
+</html>

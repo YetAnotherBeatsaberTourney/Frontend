@@ -1,0 +1,254 @@
+@import url('../Font/Poppins.ttf');
+body {
+  font-family: Poppins;
+  overflow: hidden;
+}
+
+.fade-inImages {
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5 ease-in-out;
+}
+
+.F500 {
+  font-weight: 500;
+}
+
+.F700 {
+  font-weight: 700;
+}
+
+.White {
+  color: white;
+}
+
+.Txt13 {
+  font-size: 13px;
+}
+
+.Txt15 {
+  font-size: 15px;
+}
+
+.Txt20 {
+  font-size: 20px;
+}
+
+.W340 {
+  width: 340px;
+  max-width: 340px;
+}
+
+.Fade {
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, #000 90%, transparent);
+}
+
+/* Song Cards */
+
+#Wrapper {
+  height: 125px;
+  width: 550px;
+  position: fixed;
+}
+
+#SongCard {
+  min-height: 125px;
+  min-width: 550px;
+  max-width: 550px;
+  position: fixed;
+}
+
+.SongCover {
+  background: url('https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg') 50% 50% / cover;
+  background-color:#000;
+  width: 550px;
+  max-width: 550px;
+  height: 125px;
+  max-height: 125px;
+  border-radius: 15px;
+  opacity: 0.3;
+  margin: 0;
+  position: fixed;
+}
+
+.BlurBox {
+  position: fixed;
+  top: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  background: #0000007a;
+  width: 550px;
+  max-width: 550px;
+  height: 125px;
+  max-height: 125px;
+  border-radius: 14px;
+  transition: all 0.5s ease;
+  margin: 0;
+}
+
+.BlurBoxLower {
+  position: fixed;
+  top: 8px;
+  background: #000000;
+  border-radius: 14px;
+  z-index: -1;
+  width: 550px;
+  max-width: 550px;
+  height: 125px;
+  max-height: 125px;
+}
+
+.SongBox {
+  display: flex;
+  position: relative;
+  top: 3px;
+  left: 4px;
+  gap: 11px;
+}
+
+.SongBoxBG {
+  top: 5px;
+  left: 5px;
+  background: url('https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg') 50% 50% / cover;
+  background-color:#000;
+  min-width: 116px;
+  min-height: 116px;
+  border-radius: 15px;
+  opacity: 0.9;
+  transition: all 0.5s ease;
+}
+
+.SongInfoLeft {
+  margin-top: -6px;
+}
+
+.SongArtist {
+  margin-bottom: -23px;
+}
+
+.SongName {
+  margin-bottom: -18px;
+}
+
+.SongMapper {
+  margin-bottom: 3px;
+}
+
+.Tags {
+  position: relative;
+  top: 2px;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+.DiffBox {
+  background: rgb(0, 128, 85);
+  width: 67px;
+  max-width: 67px;
+  height: 26px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.DiffName {
+  text-align: center;
+}
+
+.ModifiersBox {
+  background: rgb(0, 128, 85);
+  height: 26px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  opacity: 0;
+}
+
+.ModifiersText {
+  margin-left: 8px;
+  margin-right: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.SongInfoRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  width: 50px;
+}
+
+.SongKey {
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+
+.SongPicker {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0px 1px 2px 0px rgb(0 0 0 / 50%);
+  border-radius: 15px;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.SongLength {
+  color: white;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* Round Box */
+
+.RoundBox {
+  position: absolute;
+  right: 40px;
+  bottom: 65px;
+  display: flex;
+}
+
+.TextBox {
+  transition: all 0.5s ease-in-out;
+  background-color: #5D4478;
+  height: 46px;
+  direction: rtl;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0;
+}
+
+.RoundText {
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.Logo {
+  height: 46px;
+  width: 46px;
+  background-color: #251932;
+}
+
+.LogoImage {
+  height: 100%;
+  width: auto;
+}
