@@ -10,7 +10,7 @@ body {
 .BGImage {
   width: 1920px;
   height: 1080px;
-  background: url("../images/BGMask.png");
+  background: url("../images/Background.png");
   background-repeat: no-repeat;
   opacity: 1;
   position: absolute;
@@ -243,8 +243,8 @@ body {
 }
 
 .PokemonBar1 {
-  top: 100;
-  left: 134;
+  top: 110;
+  left: 131;
   bottom: 0;
 }
 
@@ -260,8 +260,8 @@ body {
 }
 
 .PokemonBar2 {
-  top: 100;
-  right: 134;
+  top: 110;
+  right: 136;
   bottom: 0;
 }
 
@@ -271,7 +271,7 @@ body {
   width: 2px; 
   height: 44px;
   background-color: white;
-  margin-left: calc(78%); /* Position the line at 80% of the length */
+  margin-left: calc(80%); /* Position the line at 80% of the length */
   top: 50%;
   transform: translateY(-50%);
 }
@@ -332,7 +332,7 @@ body {
   background: linear-gradient(180deg, #ff6161, #DF8585);
   top: 45%;
   transform: translateY(-50%);
-  right: 18px;
+  right: 15px;
   box-sizing: border-box; /* Ensure box sizing includes padding and borders */
 }
 
