@@ -237,7 +237,7 @@ body {
   position: absolute;
   height: 20px;
   width: 100px; /* Adjust the width of the bar as needed */
-  background-color: rgba(189, 189, 189, 0.7);
+  background-color: rgba(209, 209, 209, 0.37);
   display: flex;
   align-items: stretch;
 }
@@ -249,10 +249,14 @@ body {
 }
 
 .PokemonBar1::before {
+  position: absolute;
   content: "";
-  width: 2px; /* Adjust the width of the line as needed */
+  width: 2px;
+  height: 12px;
   background-color: white;
-  margin-left: calc(20%); /* Position the line at 80% of the length */
+  margin-left: calc(20%); /* Position the line at 20% of the length */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .PokemonBar2 {
@@ -262,10 +266,14 @@ body {
 }
 
 .PokemonBar2::before {
+  position: absolute;
   content: "";
-  width: 2px; /* Adjust the width of the line as needed */
+  width: 2px; 
+  height: 12px;
   background-color: white;
   margin-left: calc(78%); /* Position the line at 80% of the length */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* team 1*/
