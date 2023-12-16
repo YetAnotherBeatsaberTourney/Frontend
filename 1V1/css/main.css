@@ -229,6 +229,73 @@ body {
   margin-left: 11px;
 }
 
+/* (totally not) pokemon team */
+
+/* pokemon bar */
+
+.PokemonBar {
+  position: absolute;
+  height: 20px;
+  width: 100px; /* Adjust the width of the bar as needed */
+  background-color: rgba(189, 189, 189, 0.7);
+  display: flex;
+  align-items: stretch;
+}
+
+.PokemonBar1 {
+  top: 50;
+  left: 100;
+  bottom: 0;
+}
+
+.PokemonBar1::before {
+  content: "";
+  width: 2px; /* Adjust the width of the line as needed */
+  background-color: white;
+  margin-left: calc(20%); /* Position the line at 80% of the length */
+}
+
+.PokemonBar2 {
+  top: 50;
+  right: 100;
+  bottom: 0;
+}
+
+.PokemonBar2::before {
+  content: "";
+  width: 2px; /* Adjust the width of the line as needed */
+  background-color: white;
+  margin-left: calc(78%); /* Position the line at 80% of the length */
+}
+
+/* team 1*/
+
+.Larry1 {
+
+}
+
+.Pikachu1 {
+
+}
+
+.Tsareena1 {
+
+}
+
+.Tinkaton1 {
+
+}
+
+.Probopass1 {
+
+}
+
+.Fuecoco1 {
+
+}
+
+/* team 2 */ 
+
 /* Score Bounds | FC, Combo, ACC */
 
 .PlayerBounds {
