@@ -19,5 +19,6 @@ async function setOverlay(playerIDs, playerNames, Round) {
 			document.getElementById("PlayerBounds").style.opacity = 1;
 			document.getElementById("TugOfWar").style.opacity = 1;
 			document.getElementById("TextBox").style.opacity = "1";
+			positionPlayers();
 		});
 }

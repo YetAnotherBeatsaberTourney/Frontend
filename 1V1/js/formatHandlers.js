@@ -119,6 +119,19 @@ function p2Replay(mapChange) {
     }
 }
 
+//Player in pokemonbar positioning
+const pokemon = document.querySelectorAll('.PokemonImage');
+function positionPlayers()
+{
+    pokemon.forEach((player, index) => {
+        const dynamicRight = index === 0 ? 12 : pokemon[index - 1].offsetLeft + pokemon[index - 1].offsetLeft + 12;
+
+        // set the right property dynamically
+        player.style.right = dynamicRight + 'px';
+        console.log(`Player ${index + 1}: offsetLeft = ${player.offsetLeft}, offsetWidth = ${player.offsetWidth}, dynamicRight = ${dynamicRight}`);
+    })
+}
+
 /* Scoreline handler */
 function changeScoreline(Score) {
     scoreLine = [Score[0], Score[1]];
