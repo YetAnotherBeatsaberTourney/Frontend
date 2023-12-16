@@ -276,6 +276,27 @@ body {
   transform: translateY(-50%);
 }
 
+/* Pokemon */
+.PokemonImage {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
+  background: linear-gradient(180deg, #ff6161, #DF8585);
+  border: 3px solid transparent;
+  border-radius: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box; /* Ensure box sizing includes padding and borders */
+}
+
+.PokemonImage img {
+  width: 100%; /* Make sure the image takes up 100% of the container */
+  height: 100%;
+  border-radius: 50%; /* Ensure the image itself is circular */
+  display: block; /* Remove any default inline spacing */
+}
+
 /* Team 1*/
 
 /*Team 1 captain*/
@@ -284,9 +305,10 @@ body {
   width: 40px;
   height: 40px;
   box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
-  border-radius: 50%; /* Set border-radius to 50% */
   background: linear-gradient(180deg, #ff6161, #DF8585);
-  top: 45%;
+  border: 3px solid transparent;
+  border-radius: 110%;
+  top: 50%;
   transform: translateY(-50%);
   left: 11px;
   box-sizing: border-box; /* Ensure box sizing includes padding and borders */
@@ -300,8 +322,10 @@ body {
 }
 
 /*Team 1 players*/
-.Pikachu1 {
 
+/* Person currently playing */
+.Pikachu1 {
+  right: 15;
 }
 
 .Tsareena1 {
@@ -328,8 +352,9 @@ body {
   width: 40px;
   height: 40px;
   box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
-  border-radius: 50%; /* Set border-radius to 50% */
   background: linear-gradient(180deg, #ff6161, #DF8585);
+  border: 3px solid transparent;
+  border-radius: 110%;
   top: 45%;
   transform: translateY(-50%);
   right: 15px;
