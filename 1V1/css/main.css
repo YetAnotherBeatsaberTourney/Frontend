@@ -235,16 +235,16 @@ body {
 
 .PokemonBar {
   position: absolute;
-  height: 20px;
-  width: 100px; /* Adjust the width of the bar as needed */
+  height: 56px;
+  width: 337px; /* Adjust the width of the bar as needed */
   background-color: rgba(209, 209, 209, 0.37);
   display: flex;
   align-items: stretch;
 }
 
 .PokemonBar1 {
-  top: 50;
-  left: 100;
+  top: 100;
+  left: 134;
   bottom: 0;
 }
 
@@ -252,7 +252,7 @@ body {
   position: absolute;
   content: "";
   width: 2px;
-  height: 12px;
+  height: 44px;
   background-color: white;
   margin-left: calc(20%); /* Position the line at 20% of the length */
   top: 50%;
@@ -260,8 +260,8 @@ body {
 }
 
 .PokemonBar2 {
-  top: 50;
-  right: 100;
+  top: 100;
+  right: 134;
   bottom: 0;
 }
 
@@ -269,7 +269,7 @@ body {
   position: absolute;
   content: "";
   width: 2px; 
-  height: 12px;
+  height: 44px;
   background-color: white;
   margin-left: calc(78%); /* Position the line at 80% of the length */
   top: 50%;
@@ -278,10 +278,18 @@ body {
 
 /* team 1*/
 
+/*Team captain*/
 .Larry1 {
-
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
+  background: linear-gradient(165deg, #7070ff, #cc7ffc) border-box;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  margin-left: 11px;
 }
 
+/*Team players*/
 .Pikachu1 {
 
 }
