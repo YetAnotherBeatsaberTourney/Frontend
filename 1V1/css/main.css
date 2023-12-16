@@ -239,7 +239,7 @@ body {
   width: 337px; /* Adjust the width of the bar as needed */
   background-color: rgba(209, 209, 209, 0.37);
   display: flex;
-  align-items: stretch;
+  align-items: absolute;
 }
 
 .PokemonBar1 {
@@ -276,20 +276,30 @@ body {
   transform: translateY(-50%);
 }
 
-/* team 1*/
+/* Team 1*/
 
-/*Team captain*/
+/*Team 1 captain*/
 .Larry1 {
+  position: absolute;
   width: 40px;
   height: 40px;
-  box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
-  background: linear-gradient(165deg, #7070ff, #cc7ffc) border-box;
-  border: 1px solid transparent;
-  border-radius: 15px;
-  margin-left: 11px;
+  box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
+  border-radius: 50%; /* Set border-radius to 50% */
+  background: linear-gradient(180deg, #ff6161, #DF8585);
+  top: 45%;
+  transform: translateY(-50%);
+  left: 11px;
+  box-sizing: border-box; /* Ensure box sizing includes padding and borders */
 }
 
-/*Team players*/
+.Larry1 img {
+  width: 100%; /* Make sure the image takes up 100% of the container */
+  height: 100%;
+  border-radius: 50%; /* Ensure the image itself is circular */
+  display: block; /* Remove any default inline spacing */
+}
+
+/*Team 1 players*/
 .Pikachu1 {
 
 }
@@ -310,7 +320,31 @@ body {
 
 }
 
-/* team 2 */ 
+/* Team 2 */ 
+
+/* Team 2 captain*/
+.Larry2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
+  border-radius: 50%; /* Set border-radius to 50% */
+  background: linear-gradient(180deg, #ff6161, #DF8585);
+  top: 45%;
+  transform: translateY(-50%);
+  right: 18px;
+  box-sizing: border-box; /* Ensure box sizing includes padding and borders */
+}
+
+.Larry2 img {
+  width: 100%; /* Make sure the image takes up 100% of the container */
+  height: 100%;
+  border-radius: 50%; /* Ensure the image itself is circular */
+  display: block; /* Remove any default inline spacing */
+}
+
+/* Team 2 players */
+
 
 /* Score Bounds | FC, Combo, ACC */
 
