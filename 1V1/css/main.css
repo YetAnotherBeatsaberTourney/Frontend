@@ -341,7 +341,6 @@ body {
 
 .Location1Left {
   right: 12;
-  border-color: rgb(44, 255, 44);
 }
 
 .Location2Left {
@@ -358,6 +357,7 @@ body {
 
 .Location5Left {
   right: 220;
+  border-color: rgb(44, 255, 44);
 }
 
 /* Team 2 */ 
