@@ -325,23 +325,39 @@ body {
 
 /* Person currently playing */
 .Pikachu1 {
-  right: 15;
 }
 
 .Tsareena1 {
-
 }
 
 .Tinkaton1 {
-
 }
 
 .Probopass1 {
-
 }
 
 .Fuecoco1 {
+}
 
+.Location1Left {
+  right: 12;
+  border-color: rgb(55, 55, 255);
+}
+
+.Location2Left {
+  right: 64;
+}
+
+.Location3Left {
+  right: 116;
+}
+
+.Location4Left {
+  right: 168
+}
+
+.Location5Left {
+  right: 220;
 }
 
 /* Team 2 */ 
@@ -370,6 +386,12 @@ body {
 
 /* Team 2 players */
 
+
+/*Move pokemon*/
+
+.movablePokemon {
+  transition: all 0.5s ease-in-out;
+}
 
 /* Score Bounds | FC, Combo, ACC */
 

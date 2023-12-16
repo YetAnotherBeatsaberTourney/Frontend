@@ -120,17 +120,22 @@ function p2Replay(mapChange) {
 }
 
 //Player in pokemonbar positioning
-const pokemon = document.querySelectorAll('.PokemonImage');
-function positionPlayers()
-{
-    pokemon.forEach((player, index) => {
-        const dynamicRight = index === 0 ? 12 : pokemon[index - 1].offsetLeft + pokemon[index - 1].offsetLeft + 12;
-
-        // set the right property dynamically
-        player.style.right = dynamicRight + 'px';
-        console.log(`Player ${index + 1}: offsetLeft = ${player.offsetLeft}, offsetWidth = ${player.offsetWidth}, dynamicRight = ${dynamicRight}`);
-    })
-}
+function movePokemonConditionally() {
+    const pokemonList = document.querySelectorAll(".MovablePokemon");
+  
+    // Replace this logic with your condition for each Pokémon
+    pokemonList.forEach((pokemon) => {
+      const locationClass = pokemon.classList[2]; // Assumes the location class is the third class
+      const shouldMove = true;/* Add your condition here based on the Pokémon */;
+  
+      if (shouldMove) {
+        pokemon.classList.add("movablePokemon");
+        pokemon.classList.remove(locationClass); // Remove the old location class
+        // Add the new location class based on your condition
+        pokemon.classList.add(/* Add the new location class based on your logic */);
+      }
+    });
+  }
 
 /* Scoreline handler */
 function changeScoreline(Score) {
