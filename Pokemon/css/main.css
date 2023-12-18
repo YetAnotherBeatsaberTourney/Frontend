@@ -144,7 +144,7 @@ body {
 
 .Player1Goal {
   position: absolute;
-  top: 67px;
+  top: -14px;
   left: 97px;
   opacity: 0;
   padding-left: 13px;
@@ -180,7 +180,7 @@ body {
 
 .Player2Goal {
   position: absolute;
-  top: 67px;
+  top: -14px;
   right: 97px;
   opacity: 0;
   padding-left: 13px;
@@ -229,163 +229,175 @@ body {
   margin-left: 11px;
 }
 
-/* (totally not) pokemon team */
+/* (Totally not) Pokemon Team */
 
-/* pokemon bar */
+/* Pokemon bar */
 
 .PokemonBar {
-  position: absolute;
+  position: absolute; /* Hawk did a funny, so we're doing absolutes :D */
   height: 56px;
   width: 337px; /* Adjust the width of the bar as needed */
-  background-color: rgba(209, 209, 209, 0.37);
-  display: flex;
-  align-items: absolute;
+  max-width: 337px; /* Set the max-width, so PokemonBar1 and 2 don't exceed limits */
+  background-color: rgba(209, 209, 209, 0.37); /* Set the background */
+  display: flex; /* Flex the div, so we don't need to do a lot of singular padding/placements */
+  align-content: center; /* Align everything towards the horizontal center */
+  flex-wrap: wrap; /* Wrap so we can use align-content without problems */
+  gap: 14px; /* Set the gap between the Pokemon, so we don't have to use singular placements! */
 }
 
 .PokemonBar1 {
+  width: 50%; /* Set max-width, so display flex and flex-row */
+  padding-left: 10px; /* Add padding to the left, so the PokemonBar1 doesn't touch the edge */
   top: 110;
   left: 131;
   bottom: 0;
 }
 
-.PokemonBar1::before {
-  position: absolute;
-  content: "";
-  width: 2px;
-  height: 44px;
-  background-color: white;
-  margin-left: calc(20%); /* Position the line at 20% of the length */
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .PokemonBar2 {
+  direction: rtl; /* Reverse the direction of the flex, so captain ends on right side */
+  width: 50%; /* Set max-width, so display flex and flex-row */
+  padding-right: 10px; /* Add padding to the right, so the PokemonBar2 doesn't touch the edge */
   top: 110;
   right: 136;
   bottom: 0;
 }
 
-.PokemonBar2::before {
+.Revive {
   position: absolute;
-  content: "";
-  width: 2px; 
-  height: 44px;
+  scale: 0.01;
+  z-index: 10;
+  transition: all 0.5s ease-in-out;
+}
+
+/* CapTeam Divider */
+.CapTeamDivider { /* Divider to split the captain from the */
+  width: 2px;
+  height: 42px;
   background-color: white;
-  margin-left: calc(80%); /* Position the line at 80% of the length */
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /* Pokemon */
 .PokemonImage {
-  position: absolute;
-  width: 40px;
-  height: 40px;
+  padding: 2px; /* Add padding to the image, so it doesn't touch the border */
+  width: 40px; /* Set the width of the image */
+  height: 40px; /* Set the height of the image */
   box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(180deg, #ff6161, #DF8585);
-  border: 3px solid transparent;
-  border-radius: 110%;
-  top: 50%;
-  transform: translateY(-50%);
+  /* border: 3px solid transparent; */ /* I removed this, as it caused squaring off of the background fade */
+  border-radius: 100%;
   box-sizing: border-box; /* Ensure box sizing includes padding and borders */
 }
 
 .PokemonImage img {
   width: 100%; /* Make sure the image takes up 100% of the container */
   height: 100%;
-  border-radius: 50%; /* Ensure the image itself is circular */
-  display: block; /* Remove any default inline spacing */
+  border-radius: 100%; /* Ensure the image itself is circular */
 }
 
 /* Team 1*/
 
 /*Team 1 captain*/
 .Larry1 {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(180deg, #ff6161, #DF8585);
-  border: 3px solid transparent;
-  border-radius: 110%;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 11px;
-  box-sizing: border-box; /* Ensure box sizing includes padding and borders */
 }
 
 .Larry1 img {
   width: 100%; /* Make sure the image takes up 100% of the container */
   height: 100%;
-  border-radius: 50%; /* Ensure the image itself is circular */
-  display: block; /* Remove any default inline spacing */
+  border-radius: 100%; /* Ensure the image itself is circular */
+}
+
+/*Team 1 revive */
+.ReviveLeft {
+  position: absolute;
+  top: -750px;
+  left: -455px;
+}
+
+/*Team 1 revive */
+.ReviveRight {
+  position: absolute;
+  top: -750px;
+  right: -455px;
+  transform: scaleX(-1); /* Flip the revive image, so it's facing the right way */
 }
 
 /*Team 1 players*/
 
-/* Person currently playing */
-.Pikachu1 {
+.Pikachu1 { /* Playing */
+  background: linear-gradient(180deg, #64fc5f, #85df89);
 }
 
-.Tsareena1 {
+.Tsareena1 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
-.Tinkaton1 {
+.Tinkaton1 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
-.Probopass1 {
+.Probopass1 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
-.Fuecoco1 {
+.Fuecoco1 { /* Dead */
+  background: linear-gradient(180deg, #ff6161, #DF8585);
+  opacity: 0.5;
 }
 
 .Location1Left {
-  right: 12;
 }
 
 .Location2Left {
-  right: 64;
 }
 
 .Location3Left {
-  right: 116;
 }
 
 .Location4Left {
-  right: 168
 }
 
 .Location5Left {
-  right: 220;
-  border-color: rgb(44, 255, 44);
 }
 
-/* Team 2 */ 
+/*Team 2 players*/
 
-/* Team 2 captain*/
-.Larry2 {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  box-shadow: 3px 6px 6px 1px rgb(0 0 0 / 50%);
+/* Person currently playing */
+.Pikachu2 { /* Playing */
+  background: linear-gradient(180deg, #64fc5f, #85df89);
+}
+
+.Tsareena2 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
+}
+
+.Tinkaton2 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
+}
+
+.Probopass2 { /* Alive */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
+}
+
+.Fuecoco2 { /* Dead */
   background: linear-gradient(180deg, #ff6161, #DF8585);
-  border: 3px solid transparent;
-  border-radius: 110%;
-  top: 45%;
-  transform: translateY(-50%);
-  right: 15px;
-  box-sizing: border-box; /* Ensure box sizing includes padding and borders */
+  opacity: 0.5;
 }
 
-.Larry2 img {
-  width: 100%; /* Make sure the image takes up 100% of the container */
-  height: 100%;
-  border-radius: 50%; /* Ensure the image itself is circular */
-  display: block; /* Remove any default inline spacing */
+.Location1Right {
 }
 
-/* Team 2 players */
+.Location2Right {
+}
 
+.Location3Right {
+}
+
+.Location4Right {
+}
+
+.Location5Right {
+}
 
 /*Move pokemon*/
 
@@ -411,6 +423,15 @@ body {
   align-items: flex-end;
   color: white;
   width: 200px;
+}
+
+.Player1PlayingName {
+  position: absolute;
+  line-height: 0px;
+  margin: 0px;
+  font-size: 32px;
+  font-weight: 900;
+  top: 210px;
 }
 
 .Player1FC {
@@ -450,6 +471,15 @@ body {
   padding-bottom: 36px;
   font-size: 32px;
   font-weight: 900;
+}
+
+.Player2PlayingName {
+  position: absolute;
+  line-height: 0px;
+  margin: 0px;
+  font-size: 32px;
+  font-weight: 900;
+  top: 210px;
 }
 
 .Player2Combo {
