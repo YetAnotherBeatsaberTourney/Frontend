@@ -1,13 +1,15 @@
 const relayIp = "ws://localhost:2223";
 
 //Player data
-let playerNames = ["",""];
-let playerIDs = [];
+let teamNames = ["",""]
+let teamCaptains = [null,null]
+let players = [null,null];
 let playerScore = [0, 0];
 let playerAcc = [0.0, 0.0];
 let playerCombo = [0, 0];
 let playerMisses = [0, 0];
 let playerFC = [true,true];
+let revivesLeft = [1,1];
 let replayLeft = [1, 1];
 let replaying = [0, 0];
 let scoreLine = [0, 0];
@@ -37,10 +39,9 @@ ws.onmessage = async function (event) {
 		scoreUpdate(data.user_id, data.score, data.combo, data.accuracy * 100, data.totalMisses);
 	}
 	if (jsonObj.Type == 5) {
-		if (jsonObj.command == "createUsers" && jsonObj.matchStyle == "1v1") {
-			playerIDs = [jsonObj.PlayerIds[0], jsonObj.PlayerIds[1]];
-			playerNames = [jsonObj.PlayerNames[0], jsonObj.PlayerNames[1]];
-			setOverlay(playerIDs, playerNames, jsonObj.Round);
+		if (jsonObj.command == "createUsers" && jsonObj.matchStyle == "PS") {
+			players = [TeamInfo[0].players, TeamInfo[1].players]
+			setOverlay(captains, playerIDs, playerNames, jsonObj.Round);
 		}
 		if (jsonObj.command == "updateScore") {
 			changeScoreline(jsonObj.Score);

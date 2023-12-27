@@ -10,6 +10,7 @@ function PB(hashdiff) {
     let ID1;
     let ID2;
 
+    if (tmconfig == 1) {
     if (!PlayerIDs[3]) {
         Name1 = PlayerNames[0];
         Name2 = PlayerNames[1];
@@ -20,6 +21,12 @@ function PB(hashdiff) {
         Name2 = TeamNamesIDs[2];
         ID1 = TeamNamesIDs[1];
         ID2 = TeamNamesIDs[3];
+    }
+    } else if (tmconfig == 2) {
+        Name1 = TeamInfos[0].name;
+        Name2 = TeamInfos[1].name;
+        ID1 = TeamInfos[0].captain.id;
+        ID2 = TeamInfos[1].captain.id;
     }
     Swal.fire({
         title: 'Correct map?',
@@ -54,6 +61,7 @@ function PB(hashdiff) {
                         html: `Map: <b>${title}</b>.<br>Difficulty: <b>${diff}</b> <br>Picker: <b>${Name1}</b>`,
                         ...swalPBConfig
                     }).then((result) => {
+                        console.log({"Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID1})
                         if (result.isConfirmed) {
                             ws.send(JSON.stringify({ "Type": "5", "command": "PicksAndBans", "Action": "Pick", "map": hash, "Actor": ID1 }));
                             appendSongs(hash, diff, title, Name1, modifier);

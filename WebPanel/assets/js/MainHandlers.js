@@ -1,4 +1,4 @@
-const relayIp = "ws://localhost:2223";
+const relayIp = "wss://socketsbay.com/wss/v2/1/demo/";
 
 /*
 Versus Variables
@@ -14,6 +14,12 @@ BR Variables
 let usernames;
 let userids;
 let twitchnames;
+/*
+PokéSaber Variables
+*/
+let TeamInfos = [null,null]
+let teamOptions = [];
+let tempTeamData = [];
 
 /*
 General Variables
@@ -31,6 +37,7 @@ let closed = false;
 const inputOptions = new Promise((resolve) => {
     resolve({
         '1': '1V1 / 2V2',
+        '2': 'PokéSaber',
         '3': 'Battle Royale'
     })
 });
@@ -135,6 +142,10 @@ function configPop() {
                     tmconfig = 1;
                     title = '1V1 - 2V2';
                     break;
+                case '2':
+                    tmconfig = 2;
+                    title = 'PokéSaber';
+                    break;
                 case '3':
                     tmconfig = 3;
                     title = 'Battle Royale';
@@ -160,6 +171,19 @@ function configPop() {
                         }
                     });
                 }
+                if (tmconfig === 2) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'You\'re connected!',
+                        html: 'Tournament style: ' + title + '.<br/>',
+                        timer: 5000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            configure('PS');
+                        }
+                    });
+                }
                 if (tmconfig === 3) {
                     let timerInterval
                     Swal.fire({
@@ -169,7 +193,7 @@ function configPop() {
                         timerProgressBar: true,
                         willClose: () => {
                             clearInterval(timerInterval)
-                            configure();
+                            configure('BR');
                         }
                     });
                 }
@@ -195,13 +219,13 @@ function showConnectedMessage(beatKhana, title) {
 }
 function reset() {
     if (inMatch) {
-        if (tmconfig == 1) {
+        if (tmconfig == 1 || tmconfig == 2) {
             ws.send(JSON.stringify({ 'Type': '5',
                 'command': 'resetOverlay'
             }));
             inMatch = false;
             location.reload();
-        } else if (tmconfig == 2) {
+        } else if (tmconfig == 3) {
             ws.send(JSON.stringify({
                 'Type': '6',
                 'command': 'resetUsers'
@@ -229,6 +253,8 @@ function reload() {
                 Round: round
             }));
         } else {
+
+            if (tmconfig == 1) {
             ws.send(JSON.stringify({
                 Type: '5',
                 command: 'createUsers',
@@ -241,6 +267,15 @@ function reload() {
                 TeamImages: [TeamImages[0][0], TeamImages[0][1]],
                 Round: round
             }));
+            } else if (tmconfig == 2) {
+                ws.send(JSON.stringify({
+                    Type: '5',
+                    command: 'createUsers',
+                    matchStyle: 'PS',
+                    TeamInfo: [TeamInfo[0], TeamInfo[1]],
+                    Round: round
+                })); 
+            }
         }
     }
 };

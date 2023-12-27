@@ -11,6 +11,11 @@
 #header {
   min-width:250px;
 }
+#PSDIV {
+  opacity: 0;
+  display:none;
+  transition: all 0.5s linear;
+}
 #BRDIV {
   opacity: 0;
   display:none;

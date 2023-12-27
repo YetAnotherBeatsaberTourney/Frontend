@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Team 1",
+        "image": "http://image.url",
+        "captain": {
+            "name": "Captain 1",
+            "id": "10"
+        },
+        "players": [
+            {
+                "name": "Team 1 Player 1",
+                "id": "11",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 1 Player 2",
+                "id": "12",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 1 Player 3",
+                "id": "13",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 1 Player 4",
+                "id": "14",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 1 Player 5",
+                "id": "15",
+                "twitchname": "ThaNightHawk"
+            }
+        ]
+    },
+    {
+        "name": "Team 2",
+        "image": "http://image.url",
+        "captain": {
+            "name": "Captain 2",
+            "id": "21   "
+        },
+        "players": [
+            {
+                "name": "Team 2 Player 1",
+                "id": "21",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 2 Player 2",
+                "id": "22",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 2 Player 3",
+                "id": "23",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 2 Player 4",
+                "id": "24",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Team 2 Player 5",
+                "id": "25",
+                "twitchname": "ThaNightHawk"
+            }
+        ]
+    }
+]
