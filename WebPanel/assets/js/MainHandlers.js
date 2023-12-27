@@ -1,4 +1,4 @@
-const relayIp = "wss://socketsbay.com/wss/v2/1/demo/";
+const relayIp = "ws://localhost:2223";
 
 /*
 Versus Variables
