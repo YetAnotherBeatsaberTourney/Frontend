@@ -325,7 +325,8 @@ body {
 /*Team 1 players*/
 
 .Pikachu1 { /* Playing */
-  background: linear-gradient(180deg, #64fc5f, #85df89);
+  /* background: linear-gradient(180deg, #64fc5f, #85df89); */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
 .Tsareena1 { /* Alive */
@@ -341,8 +342,9 @@ body {
 }
 
 .Fuecoco1 { /* Dead */
-  background: linear-gradient(180deg, #ff6161, #DF8585);
-  opacity: 0.5;
+  /* background: linear-gradient(180deg, #ff6161, #DF8585); */
+  /* opacity: 0.5; */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
 .Location1Left {
@@ -364,7 +366,8 @@ body {
 
 /* Person currently playing */
 .Pikachu2 { /* Playing */
-  background: linear-gradient(180deg, #64fc5f, #85df89);
+  /* background: linear-gradient(180deg, #64fc5f, #85df89); */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
 .Tsareena2 { /* Alive */
@@ -380,8 +383,9 @@ body {
 }
 
 .Fuecoco2 { /* Dead */
-  background: linear-gradient(180deg, #ff6161, #DF8585);
-  opacity: 0.5;
+  /* background: linear-gradient(180deg, #ff6161, #DF8585);
+  opacity: 0.5; */
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
 }
 
 .Location1Right {

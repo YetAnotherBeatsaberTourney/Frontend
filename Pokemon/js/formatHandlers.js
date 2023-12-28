@@ -29,11 +29,20 @@ function scoreFormatting(x) {
 function FormatText(string) {
     let inputString = string;
     const firstSpaceIndex = inputString.indexOf(" ");
-    const firstWord = inputString.substring(0, firstSpaceIndex);
-    const remainingText = inputString.substring(firstSpaceIndex);
-    const outputString = `${firstWord} <span style="font-weight:600;">${remainingText}</span>`;
-    return outputString;
+
+    // Check if there's a space in the string
+    if (firstSpaceIndex !== -1) {
+        const firstWord = inputString.substring(0, firstSpaceIndex);
+        const remainingText = inputString.substring(firstSpaceIndex);
+        const outputString = `${firstWord} <span style="font-weight:600;">${remainingText}</span>`;
+        return outputString;
+    } else {
+        // If there's no space, handle the string accordingly
+        const outputString = `<span style="font-weight:600;">${inputString}</span>`;
+        return outputString;
+    }
 }
+
 
 /* Replay Handlers */
 function mapReplay(Actor) {

@@ -241,20 +241,18 @@ function reset() {
 }
 function reload() {
     if (inMatch) {
-
-        if (!PlayerIDs[3]) {
-            ws.send(JSON.stringify({
-                Type: '5',
-                command: 'createUsers',
-                matchStyle: '1v1',
-                PlayerNames: [PlayerNames[0], PlayerNames[1]],
-                PlayerIds: [PlayerIDs[0], PlayerIDs[1]],
-                TwitchIds: [PlayerInfo[0][1], PlayerInfo[1][1]],
-                Round: round
-            }));
-        } else {
-
             if (tmconfig == 1) {
+                if (!PlayerIDs[3]) {
+                    ws.send(JSON.stringify({
+                        Type: '5',
+                        command: 'createUsers',
+                        matchStyle: '1v1',
+                        PlayerNames: [PlayerNames[0], PlayerNames[1]],
+                        PlayerIds: [PlayerIDs[0], PlayerIDs[1]],
+                        TwitchIds: [PlayerInfo[0][1], PlayerInfo[1][1]],
+                        Round: round
+                    }));
+                } else {
             ws.send(JSON.stringify({
                 Type: '5',
                 command: 'createUsers',
@@ -267,16 +265,16 @@ function reload() {
                 TeamImages: [TeamImages[0][0], TeamImages[0][1]],
                 Round: round
             }));
+        }
             } else if (tmconfig == 2) {
                 ws.send(JSON.stringify({
                     Type: '5',
                     command: 'createUsers',
                     matchStyle: 'PS',
-                    TeamInfo: [TeamInfo[0], TeamInfo[1]],
+                    Teams: [TeamInfos[0], TeamInfos[1]],
                     Round: round
                 })); 
             }
-        }
     }
 };
 

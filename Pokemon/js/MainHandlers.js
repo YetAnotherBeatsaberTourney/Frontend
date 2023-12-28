@@ -40,8 +40,11 @@ ws.onmessage = async function (event) {
 	}
 	if (jsonObj.Type == 5) {
 		if (jsonObj.command == "createUsers" && jsonObj.matchStyle == "PS") {
-			players = [TeamInfo[0].players, TeamInfo[1].players]
-			setOverlay(captains, playerIDs, playerNames, jsonObj.Round);
+			teamCaptains = [jsonObj.Teams[0].captain, jsonObj.Teams[1].captain];
+			players = [jsonObj.Teams[0].players, jsonObj.Teams[1].players];
+			teamNames = [jsonObj.Teams[0].name, jsonObj.Teams[1].name];
+			teamImages = [jsonObj.Teams[0].image, jsonObj.Teams[1].image];
+			setOverlay(teamCaptains, players, teamNames, jsonObj.Round);
 		}
 		if (jsonObj.command == "updateScore") {
 			changeScoreline(jsonObj.Score);
