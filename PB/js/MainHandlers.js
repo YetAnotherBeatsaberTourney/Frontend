@@ -7,7 +7,7 @@ let TeamIDs = [];
 let TeamScores = [0, 0];
 let ReplayLeft = [1, 1];
 let Replaying = [0, 0];
-
+let MatchType;
 try {
     const TAsock = new WebSocket(relayIp);
 
@@ -34,6 +34,11 @@ try {
                 }
                 if (jsonObj.matchStyle == "2v2") {
                     setOverlay(2, jsonObj.TeamIDs[0], jsonObj.TeamNames[0], jsonObj.TeamImages[0], jsonObj.TeamIDs[1], jsonObj.TeamNames[1], jsonObj.TeamImages[1], jsonObj.Round);
+                    return;
+                }
+                if (jsonObj.matchStyle == "PS") {
+                    MatchType = "PS";
+                    setOverlay(2, jsonObj.Teams[0].captain.id, jsonObj.Teams[0].name, jsonObj.Teams[0].image, jsonObj.Teams[1].captain.id, jsonObj.Teams[1].name, jsonObj.Teams[1].image, jsonObj.Round);
                     return;
                 }
                 console.log("CreateUsers reached the end, but no action was taken.");

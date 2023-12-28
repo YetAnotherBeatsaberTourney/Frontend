@@ -44,9 +44,8 @@
 	<div class="container" style="height: 134px;padding-top: 35px;border-top-left-radius: 10px;">
 		<div class="row">
 			<div id="PSDIV" class="col-md-6 col-xxl-5 align-self-center m-auto"
-				style="height: auto;width: 850px;padding: 0px;padding-right: 12px;border-top-left-radius: 10px;border-top-right-radius: 10px;background: linear-gradient(#212121 10%, #373737 10%), #373737;margin: 5px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;color: rgb(33, 37, 41);text-align: center;">
-				<h1 class="text-center"
-					style="text-align: center;font-family: Poppins, sans-serif;color: rgb(211,211,211);padding: 0px;padding-top: 19px;">
+				style="height: auto;width: 850px;padding: 0px 0px 0px 0px;border-top-left-radius: 10px;border-top-right-radius: 10px;background: #373737;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;color: rgb(33, 37, 41);text-align: center;">
+				<h1 class="text-center" style="font-family: Poppins, sans-serif;color: rgb(211,211,211);padding: 25px 0 25px 0;background: #212121;border-radius: 10px 10px 0 0;">
 					Overlay Controls</h1>
 				<section class="position-relative py-4 py-xl-5">
 					<div class="container position-relative">
@@ -110,7 +109,7 @@
 											<div>
 												<button id="playerSpec" type="button"
 													class="btn btn-primary d-block w-100"
-													onclick="sendToOverlay('PSplayerSpec')" disabled>Send </button>
+													onclick="sendToOverlay('PSplayerSpec')">Send </button>
 											</div>
 										</form>
 										<br>
@@ -122,9 +121,9 @@
 											</select>
 											<div style="display: flex;gap: 5px;margin-bottom: 5px;">
 												<button id="player1Replay" type="button"
-													class="btn btn-primary d-block w-100" onclick="sendPStatus(1)">Alive</button>
+													class="btn btn-primary d-block w-100" onclick="sendPStatus('alive')">Alive</button>
 												<button id="player2Replay" type="button"
-													class="btn btn-primary d-block w-100" onclick="sendPStatus(2)">Dead</button>
+													class="btn btn-primary d-block w-100" onclick="sendPStatus('dead')">Dead</button>
 											</div>
 										</div>
 									</div>

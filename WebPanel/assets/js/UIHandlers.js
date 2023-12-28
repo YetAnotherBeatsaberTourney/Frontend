@@ -165,6 +165,20 @@ function sendToOverlay(type) {
             })
         );
     }
+    if (type === "PSplayerSpec") {
+        const P1Twitch = document.getElementById("Team1playerSpectatingNames");
+        const P2Twitch = document.getElementById("Team2playerSpectatingNames");
+        
+        const P1TwitchName = P1Twitch.options[P1Twitch.selectedIndex].getAttribute("twitch");
+        const P2TwitchName = P2Twitch.options[P2Twitch.selectedIndex].getAttribute("twitch");
+        ws.send(
+            JSON.stringify({
+                Type: 6,
+                command: "psSpec",
+                Twitch: [P1TwitchName, P2TwitchName],
+            })
+        );
+    }
     if (type === "resetSpec") {
         ws.send(
             JSON.stringify({
@@ -211,4 +225,11 @@ function sendReplay(Actor) {
     console.log("Sending replay for " + Actor);
     document.getElementById(`player${Actor}Replay`).setAttribute("disabled", "disabled");
     ws.send(JSON.stringify({ 'Type': '5', 'command': 'mapReplay', 'Actor': Actor }));
+}
+
+function sendPStatus(status) {
+    const PSalive = document.getElementById("PSalive");
+    //Change the text of the option to "Alive | PlayerName" or "Dead | PlayerName" depending on the status
+    PSalive.options[PSalive.selectedIndex].text = `${status} | ${PSalive.options[PSalive.selectedIndex].text.split(" | ")[1]}`;
+    ws.send(JSON.stringify({ 'Type': '5', 'command': 'health', 'Actor': PSalive.value, 'Status': status }));
 }

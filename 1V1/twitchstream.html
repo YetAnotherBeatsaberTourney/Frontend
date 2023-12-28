@@ -55,6 +55,15 @@
                     playerTwitch = "";
                 }
             }
+            if (jsonObj.Type == 6) {
+                if (jsonObj.command == "psSpec") {
+                    if (playerTwitch != jsonObj.TwitchIds[value]) {
+                    let iframe = document.getElementById('iframe');
+                    iframe.src = "https://player.twitch.tv/?channel="+jsonObj.TwitchIds[value]+"&height=1080&parent="+parent+"&scrolling&width=1920";
+                    playerTwitch = jsonObj.TwitchIds[value];
+                    }
+                }
+            }
 		};
     </script>
 </body>

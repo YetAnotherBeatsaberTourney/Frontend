@@ -1,70 +1,70 @@
 [
     {
-        "name": "Team 1",
-        "image": "http://image.url",
+        "name": "Volvo Indorkx",
+        "image": "https://i.imgur.com/SKtIkcJ.png",
         "captain": {
-            "name": "Captain 1",
-            "id": "10"
+            "name": "Cerret",
+            "id": "76561198333869741"
         },
         "players": [
             {
-                "name": "Team 1 Player 1",
-                "id": "11",
+                "name": "Udon",
+                "id": "76561199104169308",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 1 Player 2",
-                "id": "12",
+                "name": "NailikLP",
+                "id": "2769016623220259",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 1 Player 3",
-                "id": "13",
+                "name": "Tachidesu",
+                "id": "2429129807113296",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 1 Player 4",
-                "id": "14",
+                "name": "Sands",
+                "id": "76561198410971373",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 1 Player 5",
-                "id": "15",
+                "name": "Kira",
+                "id": "76561198027277296",
                 "twitchname": "ThaNightHawk"
             }
         ]
     },
     {
-        "name": "Team 2",
-        "image": "http://image.url",
+        "name": "Weazels",
+        "image": "https://i.imgur.com/auDeCM0.png",
         "captain": {
-            "name": "Captain 2",
-            "id": "21   "
+            "name": "Bytesy",
+            "id": "2169974796454690"
         },
         "players": [
             {
-                "name": "Team 2 Player 1",
-                "id": "21",
+                "name": "Oermer",
+                "id": "1922350521131465",
+                "twitchname": "offline"
+            },
+            {
+                "name": "Bizzy",
+                "id": "3225556157461414",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 2 Player 2",
-                "id": "22",
+                "name": "SilentBang",
+                "id": "76561198404774259",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 2 Player 3",
-                "id": "23",
+                "name": "OlbmaPhlee",
+                "id": "76561198988695829",
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Team 2 Player 4",
-                "id": "24",
-                "twitchname": "ThaNightHawk"
-            },
-            {
-                "name": "Team 2 Player 5",
-                "id": "25",
+                "name": "Smallfox",
+                "id": "2085408448198355",
                 "twitchname": "ThaNightHawk"
             }
         ]
