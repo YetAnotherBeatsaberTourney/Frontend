@@ -6,6 +6,7 @@ let teamCaptains = [null,null]
 let players = [[null],[null]];
 let aPlayerIds = [[null,null,null,null,null],[null,null,null,null,null]];
 let aPlayerNames = [["","","","",""],["","","","",""]];
+let aCurrentPlayer = [0, 0];
 let playerScore = [0, 0];
 let playerAcc = [0.0, 0.0];
 let playerCombo = [0, 0];
@@ -53,7 +54,14 @@ ws.onmessage = async function (event) {
 			const P2Name = document.getElementById("Player2PlayingName");
 
 			P1Name.innerText = jsonObj.Teams[0].players[0].name;
+			aCurrentPlayer[0] = jsonObj.Teams[0].players[0].id;
 			P2Name.innerText = jsonObj.Teams[1].players[0].name;
+			aCurrentPlayer[1] = jsonObj.Teams[1].players[0].id;
+			
+			changeLive(jsonObj.Teams[0].players[0].id, jsonObj.Teams[1].players[0].id);
+		}
+		if (jsonObj.command == "health") {
+			changeHealth(jsonObj.Actor, jsonObj.Status);
 		}
 		if (jsonObj.command == "updateScore") {
 			changeScoreline(jsonObj.Score);
@@ -64,6 +72,7 @@ ws.onmessage = async function (event) {
 		if (jsonObj.command == "resetOverlay") {
 			document.getElementById("SongCard").style.opacity = 0;
 			document.getElementById("PlayerContainers").style.opacity = 0;
+			document.getElementById("PlayerBounds").style.opacity = 0;
 			document.getElementById("TugOfWar").style.opacity = 0;
 			document.getElementById("TextBox").style.opacity = 0;
 			document.getElementById("Bar1").style.opacity = 0;
@@ -74,6 +83,21 @@ ws.onmessage = async function (event) {
 				resetReplays();
 				changeScoreline([0,0]);
 				songData["",0];
+				teamNames = ["",""]
+				teamCaptains = [null,null]
+				players = [[null],[null]];
+				aPlayerIds = [[null,null,null,null,null],[null,null,null,null,null]];
+				aPlayerNames = [["","","","",""],["","","","",""]];
+				aCurrentPlayer = [0, 0];
+				playerScore = [0, 0];
+				playerAcc = [0.0, 0.0];
+				playerCombo = [0, 0];
+				playerMisses = [0, 0];
+				playerFC = [true,true];
+				revivesLeft = [1,1];
+				replayLeft = [1, 1];
+				replaying = [0, 0];
+				scoreLine = [0, 0];
 			}, 1000);
 		}
 	} else if (jsonObj.Type == 6) {
@@ -83,6 +107,7 @@ ws.onmessage = async function (event) {
 
 			P1Name.innerText = jsonObj.Names[0];
 			P2Name.innerText = jsonObj.Names[1];
+			changeLive(jsonObj.Ids[0], jsonObj.Ids[1]);
 		}
 	}
 };

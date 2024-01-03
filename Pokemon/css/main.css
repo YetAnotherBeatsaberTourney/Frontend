@@ -286,6 +286,15 @@ body {
   /* border: 3px solid transparent; */ /* I removed this, as it caused squaring off of the background fade */
   border-radius: 100%;
   box-sizing: border-box; /* Ensure box sizing includes padding and borders */
+  transition: all 0.5s ease-in-out;
+}
+
+.Captain1 { /* Change the circle around captain 1 to be red/light red */
+  background: linear-gradient(180deg, #ff6161, #DF8585);
+}
+
+.Captain2 { /* Change the circle around captain 2 to be purple/blue */
+  background: linear-gradient(180deg, #7070ff, #cc7ffc);
 }
 
 .PokemonImage img {
@@ -324,27 +333,40 @@ body {
 
 /*Team 1 players*/
 
+.Playing {
+  background: linear-gradient(180deg, #64fc5f, #85df89) !important;
+}
+
+.Alive {
+  background: linear-gradient(180deg, #32b1fa, #356dc0);
+}
+
+.Dead {
+  background: linear-gradient(180deg, #ff6161, #DF8585) !important;
+  opacity: 0.5 !important;
+}
+
 .Pikachu1 { /* Playing */
   /* background: linear-gradient(180deg, #64fc5f, #85df89); */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Tsareena1 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Tinkaton1 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Probopass1 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Fuecoco1 { /* Dead */
   /* background: linear-gradient(180deg, #ff6161, #DF8585); */
   /* opacity: 0.5; */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Location1Left {
@@ -367,25 +389,25 @@ body {
 /* Person currently playing */
 .Pikachu2 { /* Playing */
   /* background: linear-gradient(180deg, #64fc5f, #85df89); */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Tsareena2 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Tinkaton2 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Probopass2 { /* Alive */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Fuecoco2 { /* Dead */
   /* background: linear-gradient(180deg, #ff6161, #DF8585);
   opacity: 0.5; */
-  background: linear-gradient(180deg, #32b1fa, #356dc0);
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
 }
 
 .Location1Right {

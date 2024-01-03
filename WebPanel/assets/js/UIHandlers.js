@@ -346,7 +346,6 @@ function sendReplay(Actor) {
 
 function sendPStatus(status) {
   const PSalive = document.getElementById("PSalive");
-  //Change the text of the option to "Alive | PlayerName" or "Dead | PlayerName" depending on the status
   PSalive.options[PSalive.selectedIndex].text = `${status} | ${
     PSalive.options[PSalive.selectedIndex].text.split(" | ")[1]
   }`;
