@@ -1,9 +1,16 @@
 function scoreUpdate(player, score, combo, acc, misses, reset) {
-	if (playerIDs[0] === player) {
+	//Check if playerIds[0] includes player id, if so, update player 1, else update player 2
+	if (aPlayerIds[0].includes(player)) {
 		updatePlayerData(0, score, combo, acc, misses);
-	} else if (playerIDs[1] === player) {
+	} else if (aPlayerIds[1].includes(player)) {
 		updatePlayerData(1, score, combo, acc, misses);
 	}
+	
+	// if (playerIDs[0] === player) {
+	// 	updatePlayerData(0, score, combo, acc, misses);
+	// } else if (playerIDs[1] === player) {
+	// 	updatePlayerData(1, score, combo, acc, misses);
+	// }
 
 	if (player === 0 && reset === 1) {
 		resetAllPlayers();
@@ -61,12 +68,12 @@ function updateTug() {
 
 	if (playerAcc[0] > playerAcc[1]) {
 		rightTug.style.width = "0%";
-		leftTug.style.width = `${(playerAcc[0] - playerAcc[1]) * 0.7}%`;
+		leftTug.style.width = `${(playerAcc[0] - playerAcc[1]) * 2.5}%`;
 		return;
 	}
 	if (playerAcc[1] > playerAcc[0]) {
 		leftTug.style.width = "0%";
-		rightTug.style.width = `${(playerAcc[1] - playerAcc[0]) * 0.7}%`;
+		rightTug.style.width = `${(playerAcc[1] - playerAcc[0]) * 2.5}%`;
 		return;
 	}
 }

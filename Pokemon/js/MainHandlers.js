@@ -3,7 +3,9 @@ const relayIp = "ws://localhost:2223";
 //Player data
 let teamNames = ["",""]
 let teamCaptains = [null,null]
-let players = [null,null];
+let players = [[null],[null]];
+let aPlayerIds = [[null,null,null,null,null],[null,null,null,null,null]];
+let aPlayerNames = [["","","","",""],["","","","",""]];
 let playerScore = [0, 0];
 let playerAcc = [0.0, 0.0];
 let playerCombo = [0, 0];
@@ -45,6 +47,13 @@ ws.onmessage = async function (event) {
 			teamNames = [jsonObj.Teams[0].name, jsonObj.Teams[1].name];
 			teamImages = [jsonObj.Teams[0].image, jsonObj.Teams[1].image];
 			setOverlay(teamCaptains, players, teamNames, jsonObj.Round);
+
+			
+			const P1Name = document.getElementById("Player1PlayingName");
+			const P2Name = document.getElementById("Player2PlayingName");
+
+			P1Name.innerText = jsonObj.Teams[0].players[0].name;
+			P2Name.innerText = jsonObj.Teams[1].players[0].name;
 		}
 		if (jsonObj.command == "updateScore") {
 			changeScoreline(jsonObj.Score);
@@ -57,6 +66,8 @@ ws.onmessage = async function (event) {
 			document.getElementById("PlayerContainers").style.opacity = 0;
 			document.getElementById("TugOfWar").style.opacity = 0;
 			document.getElementById("TextBox").style.opacity = 0;
+			document.getElementById("Bar1").style.opacity = 0;
+			document.getElementById("Bar2").style.opacity = 0;
 
 			setTimeout(function () {
 				scoreUpdate(0, 0, 0, 0, 0, 1);
@@ -64,6 +75,14 @@ ws.onmessage = async function (event) {
 				changeScoreline([0,0]);
 				songData["",0];
 			}, 1000);
+		}
+	} else if (jsonObj.Type == 6) {
+		if (jsonObj.command == "psSpec") {
+			const P1Name = document.getElementById("Player1PlayingName");
+			const P2Name = document.getElementById("Player2PlayingName");
+
+			P1Name.innerText = jsonObj.Names[0];
+			P2Name.innerText = jsonObj.Names[1];
 		}
 	}
 };

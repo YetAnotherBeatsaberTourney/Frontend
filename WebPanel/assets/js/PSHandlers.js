@@ -115,6 +115,8 @@ function selectTeam(id) {
             document.getElementById("PSalive").appendChild(option.cloneNode(true));
           }
 
+          matchId = 1;
+
           ws.send(
             JSON.stringify({
               Type: "5",
