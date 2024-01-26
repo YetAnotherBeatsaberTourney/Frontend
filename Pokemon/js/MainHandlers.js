@@ -77,6 +77,21 @@ ws.onmessage = async function (event) {
 			document.getElementById("TextBox").style.opacity = 0;
 			document.getElementById("Bar1").style.opacity = 0;
 			document.getElementById("Bar2").style.opacity = 0;
+			document.getElementById("ReviveLeft").style.opacity = 1;
+			document.getElementById("ReviveRight").style.opacity = 1;
+
+			for (let i = 0; i < 5; i++) {
+				const div = document.getElementsByClassName(`Location${i + 1}Left`)[0];
+				div.classList.remove("Dead");
+				div.classList.remove("Playing");
+				div.classList.add("Alive");
+			}
+			for (let i = 0; i < 5; i++) {
+				const div = document.getElementsByClassName(`Location${i + 1}Right`)[0];
+				div.classList.remove("Dead");
+				div.classList.remove("Playing");
+				div.classList.add("Alive");
+			}
 
 			setTimeout(function () {
 				scoreUpdate(0, 0, 0, 0, 0, 1);

@@ -9,11 +9,11 @@ async function setOverlay(captains, playerIDs, playerNames, Round) {
     playerIDs[0][4].id,
   ];
   aPlayerIds[1] = [
-    playerIDs[1][0].id,
-    playerIDs[1][1].id,
-    playerIDs[1][2].id,
-    playerIDs[1][3].id,
     playerIDs[1][4].id,
+    playerIDs[1][3].id,
+    playerIDs[1][2].id,
+    playerIDs[1][1].id,
+    playerIDs[1][0].id,
   ];
   aPlayerNames[0] = [
     playerIDs[0][0].name,
@@ -88,6 +88,7 @@ async function changeHealth(player, health) {
       //If they're alive, we add the Alive class and remove the Dead class
       div.classList.add("Alive");
       div.classList.remove("Dead");
+      document.getElementById("ReviveLeft").style.opacity = 0;
 
       //Else they're dead
     } else if (health == "Dead") {
@@ -102,8 +103,10 @@ async function changeHealth(player, health) {
 
     const div = document.getElementsByClassName(`Location${index + 1}Right`)[0];
     if (health == "Alive") {
+      //Set ReviveRight to 0 opacity
       div.classList.add("Alive");
       div.classList.remove("Dead");
+      document.getElementById("ReviveRight").style.opacity = 0;
     } else if (health == "Dead") {
       div.classList.add("Dead");
       div.classList.remove("Alive");

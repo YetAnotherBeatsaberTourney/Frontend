@@ -1,6 +1,6 @@
 [
     {
-        "name": "Volvo Indorkx",
+        "name": "Volvo",
         "image": "https://i.imgur.com/SKtIkcJ.png",
         "captain": {
             "name": "Cerret",
@@ -48,8 +48,8 @@
                 "twitchname": "offline"
             },
             {
-                "name": "Bizzy",
-                "id": "3225556157461414",
+                "name": "yabje",
+                "id": "76561198848329343",
                 "twitchname": "ThaNightHawk"
             },
             {
@@ -63,8 +63,8 @@
                 "twitchname": "ThaNightHawk"
             },
             {
-                "name": "Smallfox",
-                "id": "2085408448198355",
+                "name": "CoolingCloset",
+                "id": "76561198180044686",
                 "twitchname": "ThaNightHawk"
             }
         ]

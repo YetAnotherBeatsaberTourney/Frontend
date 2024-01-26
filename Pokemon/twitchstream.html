@@ -50,15 +50,11 @@
         jsonObj = JSON.parse(event.data);
         if (jsonObj.Type == 5) {
           if (jsonObj.command == "createUsers") {
-            if (playerTwitch != jsonObj.Teams[value].players[0].twitch) {
+            if (playerTwitch != jsonObj.Teams[value].players[0].twitchname) {
               let iframe = document.getElementById("iframe");
-              iframe.src =
-                "https://player.twitch.tv/?channel=" +
-                jsonObj.Teams[value].players[0].twitch +
-                "&height=1080&parent=" +
-                parent +
-                "&scrolling&width=1920";
-              playerTwitch = jsonObj.Teams[value].players[0].twitch;
+              iframe.src = "https://player.twitch.tv/?channel="+jsonObj.Teams[value].players[0].twitchname+"&height=1080&parent="+parent+"&scrolling&width=1920";
+              playerTwitch = jsonObj.Teams[value].players[0].twitchname;
+              console.log("https://player.twitch.tv/?channel="+jsonObj.Teams[value].players[0].twitchname+"&height=1080&parent="+parent+"&scrolling&width=1920")
             }
           }
           if (jsonObj.command == "resetOverlay") {
