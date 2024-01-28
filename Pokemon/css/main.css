@@ -346,6 +346,85 @@ body {
   opacity: 0.5 !important;
 }
 
+.Pikachu1 { /* Playing */
+  /* background: linear-gradient(180deg, #64fc5f, #85df89); */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Tsareena1 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Tinkaton1 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Probopass1 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Fuecoco1 { /* Dead */
+  /* background: linear-gradient(180deg, #ff6161, #DF8585); */
+  /* opacity: 0.5; */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Location1Left {
+}
+
+.Location2Left {
+}
+
+.Location3Left {
+}
+
+.Location4Left {
+}
+
+.Location5Left {
+}
+
+/*Team 2 players*/
+
+/* Person currently playing */
+.Pikachu2 { /* Playing */
+  /* background: linear-gradient(180deg, #64fc5f, #85df89); */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Tsareena2 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Tinkaton2 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Probopass2 { /* Alive */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Fuecoco2 { /* Dead */
+  /* background: linear-gradient(180deg, #ff6161, #DF8585);
+  opacity: 0.5; */
+  /* background: linear-gradient(180deg, #32b1fa, #356dc0); */
+}
+
+.Location1Right {
+}
+
+.Location2Right {
+}
+
+.Location3Right {
+}
+
+.Location4Right {
+}
+
+.Location5Right {
+}
+
 /*Move pokemon*/
 
 .movablePokemon {
@@ -626,6 +705,13 @@ body {
   border-radius: 15px;
   opacity: 0;
   transition: all 0.5s ease-in;
+}
+
+.PickedBy {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
 }
 
 .SongLength {

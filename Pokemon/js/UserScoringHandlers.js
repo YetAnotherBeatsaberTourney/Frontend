@@ -57,23 +57,23 @@ function resetAllPlayers() {
 
 
 function updateTug() {
-	const leftTug = document.getElementById("LeftTug");
-	const rightTug = document.getElementById("RightTug");
+    const leftTug = document.getElementById("LeftTug");
+    const rightTug = document.getElementById("RightTug");
 
-	if (playerAcc[0] === playerAcc[1]) {
-		leftTug.style.width = "0%"
-		rightTug.style.width = "0%";
-		return;
-	}
+    if (playerAcc[0] === playerAcc[1]) {
+        leftTug.style.width = "0%"
+        rightTug.style.width = "0%";
+        return;
+    }
 
-	if (playerAcc[0] > playerAcc[1]) {
-		rightTug.style.width = "0%";
-		leftTug.style.width = `${(playerAcc[0] - playerAcc[1]) * 2.5}%`;
-		return;
-	}
-	if (playerAcc[1] > playerAcc[0]) {
-		leftTug.style.width = "0%";
-		rightTug.style.width = `${(playerAcc[1] - playerAcc[0]) * 2.5}%`;
-		return;
-	}
+    if (playerAcc[0] > playerAcc[1]) {
+        rightTug.style.width = "0%";
+        leftTug.style.width = `${(2 + Math.log(playerAcc[0] - playerAcc[1])) * 2.5}%`;
+        return;
+    }
+    if (playerAcc[1] > playerAcc[0]) {
+        leftTug.style.width = "0%";
+        rightTug.style.width = `${(2 + Math.log(playerAcc[1] - playerAcc[0])) * 2.5}%`;
+        return;
+    }
 }
