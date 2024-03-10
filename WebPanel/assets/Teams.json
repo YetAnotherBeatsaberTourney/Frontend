@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Volvo",
+        "image": "https://i.imgur.com/SKtIkcJ.png",
+        "captain": {
+            "name": "Cerret",
+            "id": "76561198333869741"
+        },
+        "players": [
+            {
+                "name": "Udon",
+                "id": "76561199104169308",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "NailikLP",
+                "id": "2769016623220259",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Tachidesu",
+                "id": "2429129807113296",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Sands",
+                "id": "76561198410971373",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "Kira",
+                "id": "76561198027277296",
+                "twitchname": "ThaNightHawk"
+            }
+        ]
+    },
+    {
+        "name": "Weazels",
+        "image": "https://i.imgur.com/auDeCM0.png",
+        "captain": {
+            "name": "Bytesy",
+            "id": "2169974796454690"
+        },
+        "players": [
+            {
+                "name": "Oermer",
+                "id": "1922350521131465",
+                "twitchname": "offline"
+            },
+            {
+                "name": "yabje",
+                "id": "76561198848329343",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "SilentBang",
+                "id": "76561198404774259",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "OlbmaPhlee",
+                "id": "76561198988695829",
+                "twitchname": "ThaNightHawk"
+            },
+            {
+                "name": "CoolingCloset",
+                "id": "76561198180044686",
+                "twitchname": "ThaNightHawk"
+            }
+        ]
+    }
+]

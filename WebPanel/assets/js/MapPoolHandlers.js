@@ -80,6 +80,8 @@ function selectLocalMapPool() {
                 html: 'You selected map pool<b>: ' + decodeURI(result.value).replace(/\.[^/.]+$/, "</b>"),
             });
             setSongJSON(result.value);
+
+            if (tmconfig == 1) {
             document.getElementById("MATCHDIV").style.opacity = "0";
             setTimeout(function () {
                 document.getElementById("VERSUSDIV").style.display = "inline-block";
@@ -88,6 +90,16 @@ function selectLocalMapPool() {
                     document.getElementById("VERSUSDIV").style.opacity = "1";
                 }, 1);
             }, 1);
+            } else if (tmconfig == 2) {
+                document.getElementById("MATCHDIV").style.opacity = "0";
+                setTimeout(function () {
+                    document.getElementById("PSDIV").style.display = "inline-block";
+                    document.getElementById("MATCHDIV").style.display = "none";
+                    setTimeout(function () {
+                        document.getElementById("PSDIV").style.opacity = "1";
+                    }, 1);
+                }, 1);
+            }
         }
     })
 };

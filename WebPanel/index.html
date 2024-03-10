@@ -43,6 +43,125 @@
 	</nav>
 	<div class="container" style="height: 134px;padding-top: 35px;border-top-left-radius: 10px;">
 		<div class="row">
+			<div id="PSDIV" class="col-md-6 col-xxl-5 align-self-center m-auto"
+				style="height: auto;width: 850px;padding: 0px 0px 0px 0px;border-top-left-radius: 10px;border-top-right-radius: 10px;background: #373737;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;color: rgb(33, 37, 41);text-align: center;">
+				<h1 class="text-center" style="font-family: Poppins, sans-serif;color: rgb(211,211,211);padding: 25px 0 25px 0;background: #212121;border-radius: 10px 10px 0 0;">
+					Overlay Controls</h1>
+				<section class="position-relative py-4 py-xl-5">
+					<div class="container position-relative">
+						<div class="row d-flex justify-content-center">
+							<div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4"
+							style="width: 790px;display: inline-flex;justify-content: space-around;flex-wrap: wrap;">
+								<div class="card mb-5">
+									<div class="card-body p-sm-5">
+										<h2 class="text-center mb-4" id="header">Set score/status</h2>
+										<form method="post">
+											<div>
+												<p id="T1Name">{Team1Name} - Score</p>
+												<span style="display: flex;"><input id="T1ScoreSlider"
+														class="form-range form-control" type="range" min="0" max="7"
+														value="0" step="1"
+														oninput="this.nextElementSibling.value = this.value" disabled />
+													<output style="padding-left: 16px;">0</output></span>
+											</div>
+											<div style="margin-top: 32px;">
+												<p id="T2Name">{Team2Name} - Score</p>
+												<span style="display: flex;"><input id="T2ScoreSlider"
+														class="form-range form-control" type="range" min="0" max="7"
+														value="0" step="1"
+														oninput="this.nextElementSibling.value = this.value" disabled />
+													<output style="padding-left: 16px;">0</output></span>
+											</div>
+											<br>
+											<div style="display: flex;gap: 5px;margin-bottom: 5px;">
+												<button id="player1Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendReplay(1)">P1 -
+													Replay</button>
+												<button id="player2Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendReplay(2)">P2 -
+													Replay</button>
+											</div>
+											
+											<button id="playerScore" type="button" class="btn btn-primary d-block w-100"
+												onclick="sendToOverlay('sendScore')" disabled>Send </button> </br>
+										</form>
+									</div>
+								</div>
+								<div class="card mb-5">
+									<div class="card-body p-sm-5">
+										<h2 class="text-center mb-4" id="header">Spectator Setting</h2>
+										<form method="post">
+											<div class="mb-3">
+												
+												<p id="T1SName">{Team1Name}</p>
+												<select required id="Team1playerSpectatingNames" class="form-control"
+													type="text" name="name" placeholder="Select a User" disabled />
+												<option value="" disabled selected>Select player</option>
+												</select>
+												<br>
+												
+												<p id="T2SName">{Team1Name}</p>
+												<select required id="Team2playerSpectatingNames" class="form-control"
+													type="text" name="name" placeholder="Select a User" disabled />
+												<option value="" disabled selected>Select player</option>
+												</select>
+											</div>
+											<div>
+												<button id="playerSpec" type="button"
+													class="btn btn-primary d-block w-100"
+													onclick="sendToOverlay('PSplayerSpec')">Send </button>
+											</div>
+										</form>
+										<br>
+										<div class="mb-3">
+											<h2 class="text-center mb-4">Player status</h2>
+											<select required id="PSalive" class="form-control" type="text" name="name"
+												placeholder="Is player alive?" disabled />
+											<option value="" disabled selected>Select Player</option>
+											</select>
+											<div style="display: flex;gap: 5px;margin-bottom: 5px;">
+												<button id="player1Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendPStatus('Alive')">Alive</button>
+												<button id="player2Replay" type="button"
+													class="btn btn-primary d-block w-100" onclick="sendPStatus('Dead')">Dead</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								</br>
+								<div class="card mb-5">
+									<div class="card-body p-sm-5">
+										<h2 class="text-center mb-4" id="header">Picks&Bans</h2>
+										<div class="SongDivs" id="SongDivs">
+											<img id="SongCircle" src="../PB/Images/songPlaceholder.png"
+												onclick="PB('songHashHere');" class="SongCircle"
+												style="display:none;" />
+										</div>
+									</div>
+								</div>
+								<div class="card mb-5">
+									<div class="card-body p-sm-5">
+										<h2 class="text-center mb-4" id="header">Current map</h2>
+										<form method="post">
+											<div class="mb-3">
+												<select required id="currentMap" class="form-control" type="text"
+													name="name" placeholder="Select a map" disabled>
+													<option value="" disabled selected>Select map</option>
+												</select>
+											</div>
+											<div>
+												<button id="mapPlaying" type="button"
+													class="btn btn-primary d-block w-100"
+													onclick="sendToOverlay('currentMap')" disabled>Send </button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
 			<div id="BRDIV" class="col-md-6 col-xxl-5 align-self-center m-auto"
 				style="height: 650px;width: 850px;padding: 0px;padding-right: 12px;border-top-left-radius: 10px;border-top-right-radius: 10px;background: linear-gradient(#212121 13%, #373737 13%), #373737;margin: 5px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;color: rgb(33, 37, 41);text-align: center;">
 				<h1 class="text-center"
@@ -243,6 +362,7 @@
 	<script src="./assets/js/UIHandlers.js"></script>
 	<script src="./assets/js/VersusHandlers.js"></script>
 	<script src="./assets/js/BRHandlers.js"></script>
+	<script src="./assets/js/PSHandlers.js"></script>
 	<script src="./assets/js/Helpers.js"></script>
 </body>
 

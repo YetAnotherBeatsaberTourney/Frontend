@@ -266,7 +266,7 @@
         }
 
         try {
-            var TAsock = new WebSocket("wss://api.danesaber.cf:2224");
+            var TAsock = new WebSocket("ws://localhost:2223");
             TAsock.onopen = function (event) {
                 console.log("Connected to Websocket");
             };

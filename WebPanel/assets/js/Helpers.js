@@ -52,6 +52,44 @@ const mapPoolNotifConf = {
     }
 }
 
+const psTeam1 = {
+    title: 'Select team 1',
+    input: 'select',
+    inputOptions: tempTeamData,
+    inputPlaceholder: 'Select a team',
+    showCancelButton: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    inputValidator: (value) => {
+        return new Promise((resolve) => {
+            if (value) {
+                resolve();
+            } else {
+                resolve('You need to select something!');
+            }
+        })
+    }
+}
+
+const psTeam2 = {
+    title: 'Select team 2',
+    input: 'select',
+    inputOptions: tempTeamData,
+    inputPlaceholder: 'Select a team',
+    showCancelButton: false,
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    inputValidator: (value) => {
+        return new Promise((resolve) => {
+            if (value) {
+                resolve();
+            } else {
+                resolve('You need to select something!');
+            }
+        })
+    }
+}
+
 const swalPBConfig = {
     title: 'Pick or Ban?',
     showDenyButton: true,

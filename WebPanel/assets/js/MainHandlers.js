@@ -1,4 +1,4 @@
-const relayIp = "wss://danesaber.cf:2224";
+const relayIp = "ws://localhost:2223";
 
 /*
 Versus Variables
@@ -14,6 +14,12 @@ BR Variables
 let usernames;
 let userids;
 let twitchnames;
+/*
+PokéSaber Variables
+*/
+let TeamInfos = [null,null]
+let teamOptions = [];
+let tempTeamData = [];
 
 /*
 General Variables
@@ -31,6 +37,7 @@ let closed = false;
 const inputOptions = new Promise((resolve) => {
     resolve({
         '1': '1V1 / 2V2',
+        '2': 'PokéSaber',
         '3': 'Battle Royale'
     })
 });
@@ -135,6 +142,10 @@ function configPop() {
                     tmconfig = 1;
                     title = '1V1 - 2V2';
                     break;
+                case '2':
+                    tmconfig = 2;
+                    title = 'PokéSaber';
+                    break;
                 case '3':
                     tmconfig = 3;
                     title = 'Battle Royale';
@@ -160,6 +171,19 @@ function configPop() {
                         }
                     });
                 }
+                if (tmconfig === 2) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'You\'re connected!',
+                        html: 'Tournament style: ' + title + '.<br/>',
+                        timer: 5000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            configure('PS');
+                        }
+                    });
+                }
                 if (tmconfig === 3) {
                     let timerInterval
                     Swal.fire({
@@ -169,7 +193,7 @@ function configPop() {
                         timerProgressBar: true,
                         willClose: () => {
                             clearInterval(timerInterval)
-                            configure();
+                            configure('BR');
                         }
                     });
                 }
@@ -195,13 +219,13 @@ function showConnectedMessage(beatKhana, title) {
 }
 function reset() {
     if (inMatch) {
-        if (tmconfig == 1) {
+        if (tmconfig == 1 || tmconfig == 2) {
             ws.send(JSON.stringify({ 'Type': '5',
                 'command': 'resetOverlay'
             }));
             inMatch = false;
             location.reload();
-        } else if (tmconfig == 2) {
+        } else if (tmconfig == 3) {
             ws.send(JSON.stringify({
                 'Type': '6',
                 'command': 'resetUsers'
@@ -217,18 +241,18 @@ function reset() {
 }
 function reload() {
     if (inMatch) {
-
-        if (!PlayerIDs[3]) {
-            ws.send(JSON.stringify({
-                Type: '5',
-                command: 'createUsers',
-                matchStyle: '1v1',
-                PlayerNames: [PlayerNames[0], PlayerNames[1]],
-                PlayerIds: [PlayerIDs[0], PlayerIDs[1]],
-                TwitchIds: [PlayerInfo[0][1], PlayerInfo[1][1]],
-                Round: round
-            }));
-        } else {
+            if (tmconfig == 1) {
+                if (!PlayerIDs[3]) {
+                    ws.send(JSON.stringify({
+                        Type: '5',
+                        command: 'createUsers',
+                        matchStyle: '1v1',
+                        PlayerNames: [PlayerNames[0], PlayerNames[1]],
+                        PlayerIds: [PlayerIDs[0], PlayerIDs[1]],
+                        TwitchIds: [PlayerInfo[0][1], PlayerInfo[1][1]],
+                        Round: round
+                    }));
+                } else {
             ws.send(JSON.stringify({
                 Type: '5',
                 command: 'createUsers',
@@ -242,6 +266,15 @@ function reload() {
                 Round: round
             }));
         }
+            } else if (tmconfig == 2) {
+                ws.send(JSON.stringify({
+                    Type: '5',
+                    command: 'createUsers',
+                    matchStyle: 'PS',
+                    Teams: [TeamInfos[0], TeamInfos[1]],
+                    Round: round
+                })); 
+            }
     }
 };
 

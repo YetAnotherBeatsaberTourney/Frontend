@@ -37,5 +37,9 @@ function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
         const player2Container = document.getElementById("Player2Container");
         player2Container.querySelector("#Player2Image").src = image2;
         player2Container.querySelector("#Player2Name").innerText = name2;
+        
+        document.getElementById("RoundText").outerHTML = `<div id="RoundText" class="RoundText">${FormatText(Round)}</div>`;
+        document.getElementById("PlayerContainers").style.opacity = 1;
+        document.getElementById("TextBox").style.opacity = "1";
     }
 }

@@ -10,7 +10,7 @@ body {
 .BGImage {
   width: 1920px;
   height: 1080px;
-  background: url("../images/BGMask.png");
+  background: url("../images/Background.png");
   background-repeat: no-repeat;
   opacity: 1;
   position: absolute;

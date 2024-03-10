@@ -1,4 +1,4 @@
-const relayIp = "wss://danesaber.cf:2224";
+const relayIp = "ws://localhost:2223";
 
 //Player data
 let playerNames = ["",""];

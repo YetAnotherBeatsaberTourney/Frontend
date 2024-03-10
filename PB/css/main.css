@@ -58,6 +58,10 @@ body {
   width: 340px;
   max-width: 340px;
 }
+.W310 {
+  width: 310px;
+  max-width: 310px;
+}
 
 .Fade {
   overflow: hidden;
@@ -71,7 +75,7 @@ body {
 .PlayerContainers {
   position: absolute;
   left: 515px;
-  top: 35px;
+  top: 10px;
   display: flex;
   justify-content: space-between;
   gap: 161px;
@@ -103,6 +107,10 @@ body {
   padding-right: 12px;
   padding-top: 8px;
   padding-bottom: 7px;
+  max-width: 450px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   background: rgb(61, 37, 87);
   color: white;
   text-transform: uppercase;
@@ -172,6 +180,10 @@ body {
   padding-right: 12px;
   padding-top: 8px;
   padding-bottom: 7px;
+  max-width: 450px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   background: rgba(61, 37, 87, 0.986);
   color: white;
   text-transform: uppercase;
@@ -202,42 +214,41 @@ body {
 
 #Songs {
   position: absolute;
-  top: 170px;
-  left: 614px;
-  width: 1164px;
-  max-width: 1164px;
+  top: 86px;
+  left: 515px;
+  width: 1294px;
+  max-width: 1314px;
   max-height: 690px;
   display: flex;
-  gap: 15px 59px;
+  gap: 1px 45px;
   flex-wrap: wrap;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transition: all 0.1s linear;
+  justify-content: center;
 }
 
 .SongCard {
-  height: 125px;
-  width: 550px;
-  max-height: 125px;
-  max-width: 550px;
+  width: 520px;
+  max-height: 114px;
   opacity: 0;
 }
 
 .SongCover {
   background: url('https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg') 50% 50% / cover;
-  width: 550px;
-  height: 125px;
+  width: 520px;
+  height: 112px;
   border-radius: 15px;
   opacity: 0.5;
 }
 
 .BlurBox {
   position: relative;
-  top: -125px;
+  top: -112px;
   backdrop-filter: blur(10px);
   background: #0000007a;
-  width: 550px;
-  height: 125px;
+  width: 520px;
+  height: 112px;
   border-radius: 14px;
   transition: all 0.5s ease;
 }
@@ -245,7 +256,7 @@ body {
 .SongBox {
   display: flex;
   position: relative;
-  top: -247px;
+  top: -221px;
   left: 4px;
   gap: 11px;
 }
@@ -254,27 +265,33 @@ body {
   top: 5px;
   left: 5px;
   background: url('https://eu.cdn.beatsaver.com/cfcdbd060aabc0673f4950506b5170ce59d963bc.jpg') 50% 50% / cover;
-  min-width: 116px;
-  min-height: 116px;
+  width: 105px;
+  height: 105px;
   border-radius: 15px;
   opacity: 0.9;
   transition: all 0.5s ease;
 }
 
 .SongInfoLeft {
-  margin-top: -6px;
+  /* margin-top: -6px; */
 }
 
 .SongArtist {
-  margin-bottom: -23px;
+  /* line-height: 20px; */
+  padding: 0;
+  margin: 0;
 }
 
 .SongName {
   margin-bottom: -18px;
+  padding: 0;
+  margin: 0;
 }
 
 .SongMapper {
   margin-bottom: 3px;
+  padding: 0;
+  margin: 0;
 }
 
 .Tags {
@@ -320,15 +337,18 @@ body {
 }
 
 .SongInfoRight {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   flex-wrap: nowrap;
   width: 50px;
+  right: 20px;
+  top: 4px;
 }
 
 .SongKey {
-  margin-top: 12px;
+  margin-top: 3px;
   margin-bottom: 2px;
 }
 
@@ -345,7 +365,7 @@ body {
 
 .SongLength {
   color: white;
-  margin-top: 4px;
+  margin-top: 2px;
   font-size: 13px;
 }
 

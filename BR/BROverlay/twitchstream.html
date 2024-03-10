@@ -32,8 +32,8 @@
     </div>
 
     <script>		
-        const ws = new WebSocket("wss://api.danesaber.cf:2224");
-		const parent = "api.danesaber.cf";
+        const ws = new WebSocket("ws://localhost:2223");
+		const parent = "localhost";
         let playerTwitch = ""
 
         ws.onmessage = async function(event) {

@@ -97,7 +97,7 @@ function setMapState(hash, state, actor) {
     const BlurBox = SongCard.getElementsByClassName(`BlurBox${hash}`)[0];
     const Picker = SongCard.getElementsByClassName(`SongPicker${hash}`)[0];
     let image;
-    if (guidv4(actor)) {
+    if (guidv4(actor) || MatchType == "PS") {
         if (actor == TeamIDs[0]) {
             image = TeamImages[0];
         } else if (actor == TeamIDs[1]) {

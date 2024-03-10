@@ -1,4 +1,4 @@
-const relayIp = "wss://api.danesaber.cf:2224";
+const relayIp = "ws://localhost:2223";
 
 let lastWinner = null;
 

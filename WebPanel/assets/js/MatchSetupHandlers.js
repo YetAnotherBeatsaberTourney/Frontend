@@ -39,6 +39,9 @@ function configure() {
             }
             OneVOneHandler();
         }
+        if (tmconfig == 2) {
+            PSHandler();
+        }
         if (tmconfig == 3) {
             BRHandler();
         }
