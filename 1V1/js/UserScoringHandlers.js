@@ -48,8 +48,16 @@ function resetAllPlayers() {
 	}
 }
 
-
 function updateTug() {
+	// to see the utilised formula check https://www.desmos.com/calculator/a8iurzdxea
+	const diff = playerAcc[1] - playerAcc[0]; // calculate the difference in percentage
+	const minDiff = 0.05;
+	const base= 4.3; // logarithmic scale used.
+
+	const logMinDiffBase = Math.log(minDiff) / Math.log(base);
+	const logScale = Math.log(Math.max(minDiff,Math.abs(x)))/Math.log(base); // apply scale
+	const percentage = (logScale-logMinDiffBase)/(logMinDiffBase)+Math.abs(diff*0.9); // calculate percentage (0-100)
+
 	const leftTug = document.getElementById("LeftTug");
 	const rightTug = document.getElementById("RightTug");
 
@@ -59,14 +67,17 @@ function updateTug() {
 		return;
 	}
 
-	if (playerAcc[0] > playerAcc[1]) {
+	if (diff > 0) {
 		rightTug.style.width = "0%";
-		leftTug.style.width = `${(playerAcc[0] - playerAcc[1]) * 0.7}%`;
+		leftTug.style.width = `${percentage}%`;
 		return;
-	}
-	if (playerAcc[1] > playerAcc[0]) {
+	} else if (diff < 0) {
 		leftTug.style.width = "0%";
-		rightTug.style.width = `${(playerAcc[1] - playerAcc[0]) * 0.7}%`;
+		rightTug.style.width = `${percentage}%`;
+		return;
+	} else {
+		leftTug.style.width = "0%"
+		rightTug.style.width = "0%";
 		return;
 	}
 }
