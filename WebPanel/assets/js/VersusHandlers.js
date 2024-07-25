@@ -98,13 +98,13 @@ function TwoVTwoHandler() {
                                 if (result.value) {
                                     round = result.value;
 
-                                    document.getElementById("playerScore").removeAttribute("disabled");
-                                    document.getElementById("P1ScoreSlider").removeAttribute("disabled");
-                                    document.getElementById("P2ScoreSlider").removeAttribute("disabled");
-                                    document.getElementById("currentMap").removeAttribute("disabled");
-                                    document.getElementById("mapPlaying").removeAttribute("disabled");
-                                    document.getElementById("P1Name").innerHTML = `${TeamNamesIDs[0]}'s score`;
-                                    document.getElementById("P2Name").innerHTML = `${TeamNamesIDs[2]}'s score`;
+                                    document.getElementById("playerScoreTeam").removeAttribute("disabled");
+                                    document.getElementById("T1ScoreSlider").removeAttribute("disabled");
+                                    document.getElementById("T2ScoreSlider").removeAttribute("disabled");
+                                    document.getElementById("currentMapTeams").removeAttribute("disabled");
+                                    document.getElementById("mapPlayingTeams").removeAttribute("disabled");
+                                    document.getElementById("T1Name").innerHTML = `${TeamNamesIDs[0]}'s score`;
+                                    document.getElementById("T2Name").innerHTML = `${TeamNamesIDs[2]}'s score`;
                                     inMatch = true;
                                     ws.send(JSON.stringify({
                                         Type: '5',

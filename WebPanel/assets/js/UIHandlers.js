@@ -168,9 +168,9 @@ function sendToOverlay(type) {
 
     if (
       selectedMatch.dataset.player3Guid !=
-        "00000000-0000-0000-0000-000000000000" &&
+      "00000000-0000-0000-0000-000000000000" &&
       selectedMatch.dataset.player4Guid !=
-        "00000000-0000-0000-0000-000000000000"
+      "00000000-0000-0000-0000-000000000000"
     ) {
       [PlayerIDs[2], PlayerIDs[3]] = [
         selectedMatch.dataset.player3Id,
@@ -274,14 +274,14 @@ function sendToOverlay(type) {
       diff === "easy"
         ? 0
         : diff === "normal"
-        ? 1
-        : diff === "hard"
-        ? 2
-        : diff === "expert"
-        ? 3
-        : diff === "expertplus"
-        ? 4
-        : 0;
+          ? 1
+          : diff === "hard"
+            ? 2
+            : diff === "expert"
+              ? 3
+              : diff === "expertplus"
+                ? 4
+                : 0;
     ws.send(
       JSON.stringify({
         Type: 3,
@@ -321,34 +321,35 @@ function sendToOverlay(type) {
         );
       }
     } else if (tmconfig == 2) {
-        var t1Score = document.getElementById("T1ScoreSlider").value;
-        var t2Score = document.getElementById("T2ScoreSlider").value;
-    
-        ws.send(
-            JSON.stringify({
-            Type: "5",
-            matchStyle: "PS",
-            command: "updateScore",
-            Score: [t1Score, t2Score],
-            }),
-        );
+      var t1Score = document.getElementById("T1ScoreSlider").value;
+      var t2Score = document.getElementById("T2ScoreSlider").value;
+
+      ws.send(
+        JSON.stringify({
+          Type: "5",
+          matchStyle: "PS",
+          command: "updateScore",
+          Score: [t1Score, t2Score],
+        }),
+      );
     }
   }
 }
 
 function sendReplay(Actor) {
   console.log("Sending replay for " + Actor);
-  document
-    .getElementById(`player${Actor}Replay`)
-    .setAttribute("disabled", "disabled");
+  if (PlayerIDs <= 2) {
+    document.getElementById(`player${Actor}Replay`).setAttribute("disabled", "disabled");
+  } else {
+    document.getElementById(`team${Actor}Replay`).setAttribute("disabled", "disabled");
+  }
   ws.send(JSON.stringify({ Type: "5", command: "mapReplay", Actor: Actor }));
 }
 
 function sendPStatus(status) {
   const PSalive = document.getElementById("PSalive");
-  PSalive.options[PSalive.selectedIndex].text = `${status} | ${
-    PSalive.options[PSalive.selectedIndex].text.split(" | ")[1]
-  }`;
+  PSalive.options[PSalive.selectedIndex].text = `${status} | ${PSalive.options[PSalive.selectedIndex].text.split(" | ")[1]
+    }`;
   ws.send(
     JSON.stringify({
       Type: "5",

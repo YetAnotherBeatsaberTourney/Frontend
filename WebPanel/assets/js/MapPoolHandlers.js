@@ -2,7 +2,12 @@ function appendSongs(hash, diff, songName, name, modifiers) {
     if (modifiers == "undefined") {
         modifiers = "None";
     }
-    const songs = document.getElementById("currentMap");
+
+    if (PlayerIDs <= 2) {
+        const songs = document.getElementById("currentMap");
+    } else {
+        const songs = document.getElementById("currentMapTeams");
+    }
     const option = document.createElement("option");
     option.textContent = `${songName} | ${diff} | ${modifiers}`;
     option.value = hash;
@@ -14,7 +19,14 @@ function appendSongs(hash, diff, songName, name, modifiers) {
 }
 
 function setPool(hashArray, diffArray, songNameArray, modifiers) {
-    const songDiv = document.getElementById("SongDivs");
+
+    let songDiv;
+    if (PlayerIDs.length <= 2) {
+        songDiv = document.getElementById("SongDivs");
+    } else {
+        songDiv = document.getElementById("SongDivsTeams");
+    }
+
     const songCircleTemplate = document.getElementById("SongCircle");
 
     hashArray.forEach((hash, index) => {
@@ -81,25 +93,24 @@ function selectLocalMapPool() {
             });
             setSongJSON(result.value);
 
-            if (tmconfig == 1) {
             document.getElementById("MATCHDIV").style.opacity = "0";
             setTimeout(function () {
-                document.getElementById("VERSUSDIV").style.display = "inline-block";
+
+                if (tmconfig == 1) {
+                    document.getElementById("VERSUSDIV").style.display = "inline-block";
+                } else if (tmconfig == 2) {
+                    document.getElementById("PSDIV").style.display = "inline-block";
+                }
+
                 document.getElementById("MATCHDIV").style.display = "none";
                 setTimeout(function () {
-                    document.getElementById("VERSUSDIV").style.opacity = "1";
+                    if (tmconfig == 1) {
+                        document.getElementById("VERSUSDIV").style.opacity = "1";
+                    } else if (tmconfig == 2) {
+                        document.getElementById("PSDIV").style.opacity = "1";
+                    }
                 }, 1);
             }, 1);
-            } else if (tmconfig == 2) {
-                document.getElementById("MATCHDIV").style.opacity = "0";
-                setTimeout(function () {
-                    document.getElementById("PSDIV").style.display = "inline-block";
-                    document.getElementById("MATCHDIV").style.display = "none";
-                    setTimeout(function () {
-                        document.getElementById("PSDIV").style.opacity = "1";
-                    }, 1);
-                }, 1);
-            }
         }
     })
 };
@@ -107,13 +118,13 @@ function selectLocalMapPool() {
 function setSongJSON(playlist) {
     $.getJSON("./pools/" + playlist, function (data) {
         var songList = data.songs;
-        console.log(songList)
         var songHashes = [];
         for (var i = 0; i < songList.length; i++) {
             songHashes.push(songList[i].hash);
         }
         var diffNames = [];
         for (var i = 0; i < songList.length; i++) {
+            console.log(songList[i].difficulties[0].name);
             diffNames.push(songList[i].difficulties[0].name);
         }
         var songNames = [];
@@ -126,7 +137,6 @@ function setSongJSON(playlist) {
                 songModifiers.push(songList[i].modifiers);
             }
         }
-        
 
         ws.send(JSON.stringify({
             'Type': '5',

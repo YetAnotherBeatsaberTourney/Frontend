@@ -170,6 +170,9 @@ dropdown.addEventListener('change', function () {
 function groupPlayersByTeam(players) {
     const teams = {};
     players.forEach(player => {
+        if (!player.team || player.team.length === 0) {
+            player.team = ["", 0];
+        }
         const teamId = player.team[1];
         if (!teams[teamId]) {
             teams[teamId] = [player];
@@ -179,6 +182,7 @@ function groupPlayersByTeam(players) {
     });
     return teams;
 }
+
 
 function sortTeamsByName(teams) {
     return teams.map(team => team.sort((a, b) => a.name.localeCompare(b.name)));

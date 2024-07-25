@@ -55,11 +55,11 @@ function selectTeam(id) {
       }).then((result) => {
         if (result.value) {
           round = result.value;
-          document.getElementById("playerScore").removeAttribute("disabled");
+          document.getElementById("playerScoreTeam").removeAttribute("disabled");
           document.getElementById("T1ScoreSlider").removeAttribute("disabled");
           document.getElementById("T2ScoreSlider").removeAttribute("disabled");
-          document.getElementById("currentMap").removeAttribute("disabled");
-          document.getElementById("mapPlaying").removeAttribute("disabled");
+          document.getElementById("currentMapTeams").removeAttribute("disabled");
+          document.getElementById("mapPlayingTeams").removeAttribute("disabled");
           document.getElementById("PSalive").removeAttribute("disabled");
           document
             .getElementById("Team1playerSpectatingNames")

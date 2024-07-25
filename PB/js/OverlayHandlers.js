@@ -1,7 +1,7 @@
 function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
     document.getElementById("TextBox").style.opacity = "0";
     if (type == 1) {
-        fetch('https://spi.danesaber.cf/api/bs/ss/'+id1)
+        fetch('https://spi.hawk.quest/api/bs/ss/'+id1)
             .then(response => response.json())
             .then(data => {
                 PlayerImages[0] = data.profilePicture;
@@ -12,7 +12,7 @@ function setOverlay(type, id1, name1, image1, id2, name2, image2, Round) {
                 player1Container.querySelector("#Player1Name").innerText = name1;
             });
 
-            fetch('https://spi.danesaber.cf/api/bs/ss/'+id2)
+            fetch('https://spi.hawk.quest/api/bs/ss/'+id2)
             .then(response => response.json())
             .then(data => {
                 PlayerImages[1] = data.profilePicture;

@@ -398,12 +398,15 @@ body {
 }
 
 .Logo {
+  display: flex;
   height: 46px;
   width: 46px;
-  background-color: #251932;
+  background-color: #301514;
+  justify-content: center;
 }
 
 .LogoImage {
+  padding: 5px;
   height: 100%;
   width: auto;
 }
