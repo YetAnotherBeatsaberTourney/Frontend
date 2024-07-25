@@ -35,27 +35,27 @@ async function setOverlay(captains, playerIDs, playerNames, Round) {
   document.getElementById("Player1Image").src = teamImages[0];
   document.getElementById("Player2Image").src = teamImages[1];
 
-  await fetch("https://spi.danesaber.cf/api/bs/ss/" + captains[0].id)
+  await fetch("https://spi.hawk.quest/api/bs/ss/" + captains[0].id)
     .then((response) => response.json())
     .then((data) => {
       document.getElementById("Team1CaptainPFP").src = data.profilePicture;
     });
 
-  await fetch("https://spi.danesaber.cf/api/bs/ss/" + captains[1].id)
+  await fetch("https://spi.hawk.quest/api/bs/ss/" + captains[1].id)
     .then((response) => response.json())
     .then((data) => {
       document.getElementById("Team2CaptainPFP").src = data.profilePicture;
     });
 
   for (let i = 0; i < playerIDs[0].length; i++) {
-    await fetch("https://spi.danesaber.cf/api/bs/ss/" + playerIDs[0][i].id)
+    await fetch("https://spi.hawk.quest/api/bs/ss/" + playerIDs[0][i].id)
       .then((response) => response.json())
       .then((data) => {
         document.getElementById(`Team1_${i}`).src = data.profilePicture;
       });
   }
   for (let i = 0; i < playerIDs[1].length; i++) {
-    await fetch("https://spi.danesaber.cf/api/bs/ss/" + playerIDs[1][i].id)
+    await fetch("https://spi.hawk.quest/api/bs/ss/" + playerIDs[1][i].id)
       .then((response) => response.json())
       .then((data) => {
         document.getElementById(`Team2_${i}`).src = data.profilePicture;

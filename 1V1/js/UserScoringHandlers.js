@@ -58,8 +58,6 @@ function updateTug() {
 	const logScale = Math.log(Math.max(minDiff,Math.abs(diff)))/Math.log(base); // apply scale
 	const percentage = ((logScale-logMinDiffBase)*(1/Math.log(base)-logMinDiffBase))+Math.abs(diff*1.8); // calculate percentage (0-100)
 
-	console.log(percentage);
-
 	const leftTug = document.getElementById("LeftTug");
 	const rightTug = document.getElementById("RightTug");
 

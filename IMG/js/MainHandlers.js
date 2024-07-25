@@ -11,7 +11,7 @@ async function setMapState(id,diff,modifiers) {
     let SongCard = document.getElementById("SongCard");
 
     try {
-    const response = await fetch(`https://spi.danesaber.cf/api/bs/id/${id}`);
+    const response = await fetch(`https://spi.hawk.quest/api/bs/id/${id}`);
     const data = await response.json();
     console.log(data);
 
