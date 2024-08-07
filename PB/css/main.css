@@ -74,30 +74,54 @@ body {
 
 .PlayerContainers {
   position: absolute;
-  left: 515px;
-  top: 10px;
+  top: 0;
+  height: 108px;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 161px;
+  justify-content: center;
   opacity: 0;
   transition: all 0.5s ease-in;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #000000, rgba(255, 255, 255, 0));
+}
+
+/* Logo */
+
+.LogoSpot
+{
+  width: 124px;
+}
+
+.LogoImage
+{
+  justify-content: center;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: white 3px solid;
+  border-right: white 3px solid;
+  position: relative;
+  width: auto;
+  height: 91%;;
+}
+
+.Player1Container, .Player2Container {
+  display: flex;
+  align-items: center;
 }
 
 .Player1Container {
+  right: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 600px;
-  min-width: 600px;
+  justify-content: flex-end;
 }
 
 .Player1Image {
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: 80%;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
-  background: linear-gradient(180deg, #ff6161, #DF8585) border-box;
+  background: linear-gradient(180deg, #2f58c0, #4d90d3) border-box;
   border: 3px solid transparent;
-  transition: all 0.5s ease-in;
   border-radius: 15px;
   margin-right: 11px;
 }
@@ -105,16 +129,12 @@ body {
 .Player1Name {
   padding-left: 12px;
   padding-right: 12px;
-  padding-top: 8px;
-  padding-bottom: 7px;
-  max-width: 450px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  padding-top: 1px;
+  padding-bottom: 1px;
   background: rgb(61, 37, 87);
   color: white;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 30px;
   text-align: center;
   z-index: 5;
 }
@@ -143,12 +163,28 @@ body {
   z-index: 4;
 }
 
+.Player1Goal {
+  position: absolute;
+  top: 67px;
+  left: 97px;
+  opacity: 0;
+  padding-left: 13px;
+  padding-right: 13px;
+  background: #4b3563;
+  color: white;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bolder;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  z-index: 4;
+}
+
 .Player2Container {
+  left: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  width: 600px;
-  min-width: 600px;
+  justify-content: flex-start;
 }
 
 .Player2Replay {
@@ -158,6 +194,23 @@ body {
   color: white;
   text-transform: uppercase;
   font-size: 32px;
+  font-weight: bolder;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  z-index: 4;
+}
+
+.Player2Goal {
+  position: absolute;
+  top: 67px;
+  right: 97px;
+  opacity: 0;
+  padding-left: 13px;
+  padding-right: 13px;
+  background: #4b3563;
+  color: white;
+  text-transform: uppercase;
+  font-size: 22px;
   font-weight: bolder;
   text-align: center;
   transition: all 0.5s ease-in-out;
@@ -178,27 +231,22 @@ body {
 .Player2Name {
   padding-left: 12px;
   padding-right: 12px;
-  padding-top: 8px;
-  padding-bottom: 7px;
-  max-width: 450px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  padding-top: 1px;
+  padding-bottom: 1px;
   background: rgba(61, 37, 87, 0.986);
   color: white;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 30px;
   text-align: center;
   z-index: 5;
 }
 
 .Player2Image {
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: 80%;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(165deg, #7070ff, #cc7ffc) border-box;
   border: 3px solid transparent;
-  transition: all 0.5s ease-in;
   border-radius: 15px;
   margin-left: 11px;
 }
