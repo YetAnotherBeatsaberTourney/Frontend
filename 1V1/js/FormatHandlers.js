@@ -86,7 +86,7 @@ function p1Replay(mapChange) {
             document.getElementById("Player1Replay").style.translate = "0px";
             document.getElementById("Player1Replay").style.transform = "translateY(12px)";
             document.getElementById("Player1Replay").style.paddingLeft = "6px";
-            document.getElementById("Player1Replay").style.paddingRight = "7px";
+            document.getElementById("Player1Replay").style.paddingRight = "8px";
 
         }, 1000);
     } else if (replayLeft[0] == 0 && replaying[0] == 1 && mapChange) {
@@ -122,7 +122,9 @@ function p2Replay(mapChange) {
             document.getElementById("Player2Replay").style.opacity = "1";
             document.getElementById("Player2Goal").style.opacity = "1";
             document.getElementById("Player2Replay").style.translate = "0px";
-            document.getElementById("Player1Replay").style.top = "30px";
+            document.getElementById("Player2Replay").style.transform = "translateY(12px)";
+            document.getElementById("Player2Replay").style.paddingLeft = "7px";
+            document.getElementById("Player2Replay").style.paddingRight = "6px";
         }, 1000);
     } else if (replayLeft[1] == 0 && replaying[1] == 1 && mapChange) {
         replaying[1] = 0;

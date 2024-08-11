@@ -70,6 +70,19 @@ body {
   mask-image: linear-gradient(90deg, #000 90%, transparent);
 }
 
+/* Background */
+.Background
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1920px;
+  height: 1080px;
+  background: #5d5d5d;
+  opacity: 1;
+  z-index: -100000;
+}
+
 /* PlayerContainers */
 
 .PlayerContainers {
@@ -131,29 +144,32 @@ body {
   padding-right: 12px;
   padding-top: 1px;
   padding-bottom: 1px;
-  background: rgb(61, 37, 87);
+  margin-right: 8px;
+  background: #4D5386;
   color: white;
   text-transform: uppercase;
   font-size: 30px;
   text-align: center;
   z-index: 5;
+  border-radius:0 8px 8px 0;
 }
 
 .Player1Score {
   min-width: 48px;
-  background: #251932;
-  color: rgb(255 255 255 / 93%);
+  background: #2C3050;
+  color: white;
   text-transform: uppercase;
   font-size: 32px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
+  border-radius: 8px 0 0 8px;
 }
 
 .Player1Replay {
-  padding-left: 17px;
-  padding-right: 17px;
-  background: #1c1326;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: transparent;
   color: white;
   text-transform: uppercase;
   font-size: 32px;
@@ -164,20 +180,20 @@ body {
 }
 
 .Player1Goal {
-  position: absolute;
-  top: 67px;
-  left: 97px;
+  transform: translateY(-10px);
+  translate: 135px;
   opacity: 0;
   padding-left: 13px;
   padding-right: 13px;
-  background: #4b3563;
+  background: #4D5386;
   color: white;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bolder;
   text-align: center;
   transition: all 0.5s ease-in-out;
   z-index: 4;
+  border-radius: 8px 0 0 0;
 }
 
 .Player2Container {
@@ -188,9 +204,9 @@ body {
 }
 
 .Player2Replay {
-  padding-left: 17px;
-  padding-right: 17px;
-  background: #1c1326;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: transparent;
   color: white;
   text-transform: uppercase;
   font-size: 32px;
@@ -201,31 +217,32 @@ body {
 }
 
 .Player2Goal {
-  position: absolute;
-  top: 67px;
-  right: 97px;
+  transform: translateY(-10px);
+  translate: -135px;
   opacity: 0;
   padding-left: 13px;
   padding-right: 13px;
-  background: #4b3563;
+  background: #4D5386;
   color: white;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bolder;
   text-align: center;
   transition: all 0.5s ease-in-out;
-  z-index: 4;
+  z-index: 3;
+  border-radius: 0 8px 0 0;
 }
 
 .Player2Score {
   min-width: 48px;
-  background: #251932;
-  color: rgb(255 255 255 / 93%);
+  background: #2C3050;
+  color: white;
   text-transform: uppercase;
   font-size: 32px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
+  border-radius: 0 8px 8px 0;
 }
 
 .Player2Name {
@@ -233,31 +250,24 @@ body {
   padding-right: 12px;
   padding-top: 1px;
   padding-bottom: 1px;
-  background: rgba(61, 37, 87, 0.986);
+  margin-left: 8px;
+  background: #4D5386;
   color: white;
   text-transform: uppercase;
   font-size: 30px;
   text-align: center;
   z-index: 5;
+  border-radius: 8px 0 0 8px;
 }
 
 .Player2Image {
   width: auto;
   height: 80%;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
-  background: linear-gradient(165deg, #7070ff, #cc7ffc) border-box;
+  background: linear-gradient(165deg, #dc6153, #fc8e7f) border-box;
   border: 3px solid transparent;
   border-radius: 15px;
   margin-left: 11px;
-}
-
-/* Song Cards */
-#WrapperTemplate {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  max-width: 1320px;
-  justify-content: center;
 }
 
 #Songs {
