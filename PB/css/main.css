@@ -468,3 +468,13 @@ body {
   height: 100%;
   width: auto;
 }
+
+.LogoImageLocal {
+  display: flex;
+  height: 46px;
+  width: 46px;
+  background-color: #301514;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}

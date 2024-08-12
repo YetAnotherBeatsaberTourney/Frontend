@@ -68,27 +68,42 @@ function resetReplays() {
 }
 function p1Replay(mapChange) {
     if (replayLeft[0] === 1 && !mapChange) {
-        replayLeft[0] = 0;
-        replaying[0] = 1;
-        document.getElementById("Player1Replay").style.opacity = "0";
-        document.getElementById("Player1Goal").style.opacity = "0";
-        document.getElementById("Player1Replay").style.translate = "-150px";
+        // replayLeft[0] = 0;
 
-        setTimeout(function () {
-            document.getElementById("Player1Score").style.borderRadius = "0";
-            document.getElementById("Player1Replay").style.borderBottomLeftRadius = "8px";
-            document.getElementById("Player1Replay").style.backgroundColor = "#161724";
-            document.getElementById("Player1Replay").style.fontSize = "16px";
-            document.getElementById("Player1Replay").innerText = "REPLAY CALLED";
-            document.getElementById("Player1Goal").innerText = `TO BEAT: ${playerAcc[1]}%`;
-            document.getElementById("Player1Replay").style.opacity = "1";
-            document.getElementById("Player1Goal").style.opacity = "1";
-            document.getElementById("Player1Replay").style.translate = "0px";
-            document.getElementById("Player1Replay").style.transform = "translateY(12px)";
-            document.getElementById("Player1Replay").style.paddingLeft = "6px";
-            document.getElementById("Player1Replay").style.paddingRight = "8px";
+        if (replaying[0] === 0) {
+            replaying[0] = 1;
+            document.getElementById("Player1Replay").style.opacity = "0";
+            document.getElementById("Player1Goal").style.opacity = "0";
+            document.getElementById("Player1Replay").style.translate = "-150px";
 
-        }, 1000);
+            setTimeout(function () {
+                document.getElementById("Player1Score").style.borderRadius = "0";
+                document.getElementById("Player1Replay").style.borderBottomLeftRadius = "8px";
+                document.getElementById("Player1Replay").style.backgroundColor = "#161724";
+                document.getElementById("Player1Replay").style.fontSize = "16px";
+                document.getElementById("Player1Replay").innerText = "REPLAY CALLED";
+                document.getElementById("Player1Goal").innerText = `TO BEAT: ${playerAcc[1]}%`;
+                document.getElementById("Player1Replay").style.opacity = "1";
+                document.getElementById("Player1Goal").style.opacity = "1";
+                document.getElementById("Player1Replay").style.translate = "0px";
+                document.getElementById("Player1Replay").style.transform = "translateY(12px)";
+                document.getElementById("Player1Replay").style.paddingLeft = "6px";
+                document.getElementById("Player1Replay").style.paddingRight = "8px";
+            }, 1000);
+        } else {
+            replaying[0] = 0;
+            document.getElementById("Player1Replay").style.opacity = "0";
+            document.getElementById("Player1Goal").style.opacity = "0";
+            document.getElementById("Player1Replay").style.translate = "-150px";
+
+            setTimeout(function () {
+                document.getElementById("Player1Score").style.borderBottomLeftRadius = "8px";
+                document.getElementById("Player1Score").style.borderTopLeftRadius = "8px";
+                document.getElementById("Player1Replay").innerText = "R";
+                document.getElementById("Player1Replay").style.opacity = "0.4";
+                document.getElementById("Player1Replay").style.translate = "0px";
+            }, 1000);
+        }
     } else if (replayLeft[0] == 0 && replaying[0] == 1 && mapChange) {
         replaying[0] = 0;
         document.getElementById("Player1Replay").style.opacity = "0";
@@ -106,13 +121,15 @@ function p1Replay(mapChange) {
 }
 function p2Replay(mapChange) {
     if (replayLeft[1] === 1 && !mapChange) {
-        replayLeft[1] = 0;
-        replaying[1] = 1;
-        document.getElementById("Player2Replay").style.opacity = "0";
-        document.getElementById("Player2Goal").style.opacity = "0";
-        document.getElementById("Player2Replay").style.translate = "150px";
+        // replayLeft[1] = 0;
 
-        setTimeout(function () {
+        if (replaying[1] === 0) {
+            replaying[1] = 1;
+            document.getElementById("Player2Replay").style.opacity = "0";
+            document.getElementById("Player2Goal").style.opacity = "0";
+            document.getElementById("Player2Replay").style.translate = "150px";
+
+            setTimeout(function () {
             document.getElementById("Player2Score").style.borderRadius = "0";
             document.getElementById("Player2Replay").style.borderBottomRightRadius = "8px";
             document.getElementById("Player2Replay").style.backgroundColor = "#161724";
@@ -126,6 +143,20 @@ function p2Replay(mapChange) {
             document.getElementById("Player2Replay").style.paddingLeft = "7px";
             document.getElementById("Player2Replay").style.paddingRight = "6px";
         }, 1000);
+        } else {
+            replaying[0] = 0;
+            document.getElementById("Player1Replay").style.opacity = "0";
+            document.getElementById("Player1Goal").style.opacity = "0";
+            document.getElementById("Player1Replay").style.translate = "-150px";
+
+            setTimeout(function () {
+                document.getElementById("Player1Score").style.borderBottomLeftRadius = "8px";
+                document.getElementById("Player1Score").style.borderTopLeftRadius = "8px";
+                document.getElementById("Player1Replay").innerText = "R";
+                document.getElementById("Player1Replay").style.opacity = "0.4";
+                document.getElementById("Player1Replay").style.translate = "0px";
+            }, 1000);
+        }
     } else if (replayLeft[1] == 0 && replaying[1] == 1 && mapChange) {
         replaying[1] = 0;
         document.getElementById("Player2Replay").style.opacity = "0";
