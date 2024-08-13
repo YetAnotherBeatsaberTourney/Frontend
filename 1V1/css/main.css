@@ -95,16 +95,17 @@ body {
   height: 108px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   opacity: 0;
   transition: all 0.5s ease-in;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), #000000, rgba(255, 255, 255, 0));
 }
 
-/* Logo */
-
-.LogoSpot
-{
+.LogoSpot {
+  position: absolute;
+  left: 50%; /* Initially center the LogoSpot */
+  transform: translateX(-50%); /* Adjust for LogoSpot's own width */
   width: 124px;
 }
 
@@ -118,16 +119,17 @@ body {
   border-right: white 3px solid;
   position: relative;
   width: auto;
-  height: 91%;;
+  height: 108px;
 }
 
 .Player1Container, .Player2Container {
+  position: absolute;
   display: flex;
   align-items: center;
 }
 
 .Player1Container {
-  right: 0;
+  right: 54%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -135,7 +137,7 @@ body {
 
 .Player1Image {
   width: auto;
-  height: 80%;
+  height: 84px;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(180deg, #2f58c0, #4d90d3) border-box;
   border: 3px solid transparent;
@@ -163,7 +165,7 @@ body {
   background: #2C3050;
   color: white;
   text-transform: uppercase;
-  font-size: 32px;
+  font-size: 31.5px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
@@ -201,7 +203,7 @@ body {
 }
 
 .Player2Container {
-  left: 0;
+  left: 54%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -242,7 +244,7 @@ body {
   background: #2C3050;
   color: white;
   text-transform: uppercase;
-  font-size: 32px;
+  font-size: 31.5px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
@@ -266,14 +268,13 @@ body {
 
 .Player2Image {
   width: auto;
-  height: 80%;
+  height: 84px;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(165deg, #dc6153, #fc8e7f) border-box;
   border: 3px solid transparent;
   border-radius: 15px;
   margin-left: 11px;
 }
-
 /* Score Bounds | FC, Combo, ACC */
 
 .PlayerBounds {

@@ -7,17 +7,17 @@
 body {
   font-family: Poppins;
   overflow: hidden;
+  margin: 0;
 }
 
 .BGImage {
   width: 1920px;
   height: 1080px;
-  background: url("../images/Background.png");
+  background: url("../Images/Background.png");
   background-repeat: no-repeat;
   opacity: 1;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
   overflow: hidden;
   z-index: -100000;
 }
@@ -27,7 +27,6 @@ body {
   -moz-transition: opacity 0.5s ease-in-out;
   -ms-transition: opacity 0.5s ease-in-out;
   -o-transition: opacity 0.5s ease-in-out;
-  transition: opacity 0.5 ease-in-out;
 }
 
 .F500 {
@@ -91,16 +90,17 @@ body {
   height: 108px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   opacity: 0;
   transition: all 0.5s ease-in;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), #000000, rgba(255, 255, 255, 0));
 }
 
-/* Logo */
-
-.LogoSpot
-{
+.LogoSpot {
+  position: absolute;
+  left: 50%; /* Initially center the LogoSpot */
+  transform: translateX(-50%); /* Adjust for LogoSpot's own width */
   width: 124px;
 }
 
@@ -114,16 +114,17 @@ body {
   border-right: white 3px solid;
   position: relative;
   width: auto;
-  height: 91%;;
+  height: 108px;
 }
 
 .Player1Container, .Player2Container {
+  position: absolute;
   display: flex;
   align-items: center;
 }
 
 .Player1Container {
-  right: 0;
+  right: 54%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -131,7 +132,7 @@ body {
 
 .Player1Image {
   width: auto;
-  height: 80%;
+  height: 84px;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(180deg, #2f58c0, #4d90d3) border-box;
   border: 3px solid transparent;
@@ -159,7 +160,7 @@ body {
   background: #2C3050;
   color: white;
   text-transform: uppercase;
-  font-size: 32px;
+  font-size: 31.5px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
@@ -197,7 +198,7 @@ body {
 }
 
 .Player2Container {
-  left: 0;
+  left: 54%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -238,7 +239,7 @@ body {
   background: #2C3050;
   color: white;
   text-transform: uppercase;
-  font-size: 32px;
+  font-size: 31.5px;
   font-weight: bolder;
   text-align: center;
   z-index: 5;
@@ -262,7 +263,7 @@ body {
 
 .Player2Image {
   width: auto;
-  height: 80%;
+  height: 84px;
   box-shadow: 0px 1px 6px 1px rgb(0 0 0 / 50%);
   background: linear-gradient(165deg, #dc6153, #fc8e7f) border-box;
   border: 3px solid transparent;
@@ -272,10 +273,10 @@ body {
 
 #Songs {
   position: absolute;
-  top: 86px;
-  left: 515px;
-  width: 1294px;
-  max-width: 1314px;
+  top: 128px;
+  left: 135px;
+  width: 1650px;
+  max-width: 1650px;
   max-height: 690px;
   display: flex;
   gap: 1px 45px;
@@ -446,6 +447,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  font-weight: bolder;
   opacity: 0;
 }
 
@@ -461,12 +463,6 @@ body {
   width: 46px;
   background-color: #301514;
   justify-content: center;
-}
-
-.LogoImage {
-  padding: 5px;
-  height: 100%;
-  width: auto;
 }
 
 .LogoImageLocal {

@@ -97,11 +97,14 @@ function p1Replay(mapChange) {
             document.getElementById("Player1Replay").style.translate = "-150px";
 
             setTimeout(function () {
+                document.getElementById("Player1Replay").style.fontSize = "32px";
+                document.getElementById("Player1Replay").style.transform = "translateY(0)";
                 document.getElementById("Player1Score").style.borderBottomLeftRadius = "8px";
                 document.getElementById("Player1Score").style.borderTopLeftRadius = "8px";
                 document.getElementById("Player1Replay").innerText = "R";
                 document.getElementById("Player1Replay").style.opacity = "0.4";
                 document.getElementById("Player1Replay").style.translate = "0px";
+                document.getElementById("Player1Replay").style.borderRadius= "0";
             }, 1000);
         }
     } else if (replayLeft[0] == 0 && replaying[0] == 1 && mapChange) {
@@ -140,21 +143,24 @@ function p2Replay(mapChange) {
             document.getElementById("Player2Goal").style.opacity = "1";
             document.getElementById("Player2Replay").style.translate = "0px";
             document.getElementById("Player2Replay").style.transform = "translateY(12px)";
-            document.getElementById("Player2Replay").style.paddingLeft = "7px";
+            document.getElementById("Player2Replay").style.paddingLeft = "8px";
             document.getElementById("Player2Replay").style.paddingRight = "6px";
         }, 1000);
         } else {
             replaying[0] = 0;
-            document.getElementById("Player1Replay").style.opacity = "0";
-            document.getElementById("Player1Goal").style.opacity = "0";
-            document.getElementById("Player1Replay").style.translate = "-150px";
+            document.getElementById("Player2Replay").style.opacity = "0";
+            document.getElementById("Player2Goal").style.opacity = "0";
+            document.getElementById("Player2Replay").style.translate = "-150px";
 
             setTimeout(function () {
-                document.getElementById("Player1Score").style.borderBottomLeftRadius = "8px";
-                document.getElementById("Player1Score").style.borderTopLeftRadius = "8px";
-                document.getElementById("Player1Replay").innerText = "R";
-                document.getElementById("Player1Replay").style.opacity = "0.4";
-                document.getElementById("Player1Replay").style.translate = "0px";
+                document.getElementById("Player2Replay").style.fontSize = "32px";
+                document.getElementById("Player2Replay").style.transform = "translateY(0)";
+                document.getElementById("Player2Score").style.borderBottomRightRadius = "8px";
+                document.getElementById("Player2Score").style.borderTopRightRadius = "8px";
+                document.getElementById("Player2Replay").innerText = "R";
+                document.getElementById("Player2Replay").style.opacity = "0.4";
+                document.getElementById("Player2Replay").style.translate = "0px";
+                document.getElementById("Player2Replay").style.borderRadius= "0";
             }, 1000);
         }
     } else if (replayLeft[1] == 0 && replaying[1] == 1 && mapChange) {
