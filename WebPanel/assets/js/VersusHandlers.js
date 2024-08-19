@@ -37,6 +37,7 @@ function OneVOneHandler() {
                             document.getElementById("P1Name").innerHTML = `${PlayerNames[0]}'s score`;
                             document.getElementById("P2Name").innerHTML = `${PlayerNames[1]}'s score`;
                             inMatch = true;
+                            [TwitchIDs[0], TwitchIDs[1]] = [PlayerInfo[0][1], PlayerInfo[1][1]];
                             ws.send(JSON.stringify({
                                 Type: '5',
                                 command: 'createUsers',

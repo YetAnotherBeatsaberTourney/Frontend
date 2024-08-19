@@ -1,13 +1,17 @@
-const relayIp = "ws://localhost:2223";
+const relayIp = "ws://yabt.eu:2223";
 
 /*
 Versus Variables
 */
+let MatchID = "";
 let PlayerIDs = []; /* [P1, P2, P3, P4] */
 let PlayerNames = []; /* [P1, P2, P3, P4] */
 let PlayerInfo = []; /* Used for storing data to be sent, if you press "Reload Stream-overlay" */
 let TeamNamesIDs = []; /* Team Names and IDs */
 let TeamImages = []; /* Team Images */
+let TwitchIDs = []; /* TwitchIDs */
+let Coordinator = []; /* Coordinator */
+let CurrentMapData = [];
 /*
 BR Variables
 */
@@ -113,6 +117,20 @@ function Connect() {
                         $('#currentMatch').append(optionHtml);
                     }
                 });
+            }
+        }
+
+        if (Type == 5 && command == "requestCurrentMatch") {
+            if (inMatch) {
+                ws.send(JSON.stringify({
+                    Type: '5',
+                    command: 'castersData',
+                    PlayerNames: [PlayerNames[0], PlayerNames[1]],
+                    PlayerIds: [PlayerIDs[0], PlayerIDs[1]],
+                    TwitchIds: [PlayerInfo[0][1], PlayerInfo[1][1]],
+                    MapData: CurrentMapData,
+                    Round: round
+                }));
             }
         }
     }

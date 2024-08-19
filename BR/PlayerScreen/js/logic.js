@@ -1,4 +1,4 @@
-const relayIp = "ws://localhost:2223";
+const relayIp = "ws://yabt.eu:2223";
 
 let lastWinner = null;
 

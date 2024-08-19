@@ -119,7 +119,7 @@ body {
   border-right: white 3px solid;
   position: relative;
   width: auto;
-  height: 108px;
+  height: 100px;
 }
 
 .Player1Container, .Player2Container {
@@ -275,6 +275,7 @@ body {
   border-radius: 15px;
   margin-left: 11px;
 }
+
 /* Score Bounds | FC, Combo, ACC */
 
 .PlayerBounds {

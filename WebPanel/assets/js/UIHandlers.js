@@ -282,6 +282,9 @@ function sendToOverlay(type) {
               : diff === "expertplus"
                 ? 4
                 : 0;
+
+                
+    CurrentMapData = [hash, diffValue, modifiers, player];
     ws.send(
       JSON.stringify({
         Type: 3,

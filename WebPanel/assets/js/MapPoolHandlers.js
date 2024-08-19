@@ -3,10 +3,12 @@ function appendSongs(hash, diff, songName, name, modifiers) {
         modifiers = "None";
     }
 
-    if (PlayerIDs <= 2) {
-        const songs = document.getElementById("currentMap");
-    } else {
-        const songs = document.getElementById("currentMapTeams");
+    let songs;
+
+    if (tmconfig == 1) {
+        songs = document.getElementById("currentMap");
+    } else if (tmconfig == 2) {
+        songs = document.getElementById("currentMapTeams");
     }
     const option = document.createElement("option");
     option.textContent = `${songName} | ${diff} | ${modifiers}`;
@@ -21,9 +23,9 @@ function appendSongs(hash, diff, songName, name, modifiers) {
 function setPool(hashArray, diffArray, songNameArray, modifiers) {
 
     let songDiv;
-    if (PlayerIDs.length <= 2) {
+    if (tmconfig == 1) {
         songDiv = document.getElementById("SongDivs");
-    } else {
+    } else if (tmconfig == 2) {
         songDiv = document.getElementById("SongDivsTeams");
     }
 

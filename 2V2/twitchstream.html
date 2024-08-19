@@ -35,8 +35,8 @@
         var value = new URL(window.location.href).searchParams.get('v');
         if (!value) { value = '0'; }
 
-        const ws = new WebSocket("ws://localhost:2223");
-		const parent = "localhost";
+        const ws = new WebSocket("ws://yabt.eu:2223");
+		const parent = "yabt.eu";
         let playerTwitch = "";
 
         ws.onmessage = async function(event) {

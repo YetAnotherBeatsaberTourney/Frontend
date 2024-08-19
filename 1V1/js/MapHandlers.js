@@ -38,13 +38,13 @@ async function getMap(LevelId, LevelDiff, Modifiers, Player) {
 			setTimeout(function () {
 				document.getElementById("SongCover").style.background = `url('https://eu.cdn.beatsaver.com/${LevelId.toLowerCase()}.jpg') 50% 50% / cover`;
 				document.getElementById("SongBoxBG").style.background = `url('https://eu.cdn.beatsaver.com/${LevelId.toLowerCase()}.jpg') 50% 50% / cover`;
-				document.getElementById("SongArtist").innerText = data.metadata.levelAuthorName;
-				document.getElementById("SongName").innerText = data.metadata.songName;
-				document.getElementById("SongMapper").innerText = data.metadata.songAuthorName;
-				document.getElementById("SongKey").innerText = data.id;
+				document.getElementById("SongArtist").innerText = data.metadata.levelAuthorName.replaceAll('\n', '').replaceAll('\r', '');
+				document.getElementById("SongName").innerText = data.metadata.songName.replaceAll('\n', '').replaceAll('\r', '');
+				document.getElementById("SongMapper").innerText = data.metadata.songAuthorName.replaceAll('\n', '').replaceAll('\r', '');
+				document.getElementById("SongKey").innerText = data.id.replaceAll('\n', '').replaceAll('\r', '');
 				document.getElementById("DiffBox").style.background = diffColor;
-				document.getElementById("DiffName").innerHTML = diffText;
-				document.getElementById("SongLength").innerText = fancyTimeFormat(data.metadata.duration);
+				document.getElementById("DiffName").innerHTML = diffText.replaceAll('\n', '').replaceAll('\r', '');
+				document.getElementById("SongLength").innerText = fancyTimeFormat(data.metadata.duration).replaceAll('\n', '').replaceAll('\r', '');
 				document.getElementById("PickedBy").innerHTML = `Picked by ${Player}`;
 
 				if (Modifiers == "None") {

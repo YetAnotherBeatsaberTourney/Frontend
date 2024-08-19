@@ -7,10 +7,10 @@ async function setPool(hash, diff, modifiers) {
 
         SongCard.querySelector(".SongCover").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 50% 50% / cover`;
         SongCard.querySelector(".SongBoxBG").style.background = `url('https://eu.cdn.beatsaver.com/${hash.toLowerCase()}.jpg') 50% 50% / cover`;
-        SongCard.querySelector(".SongArtist").innerText = data.metadata.levelAuthorName;
-        SongCard.querySelector(".SongName").innerText = data.metadata.songName;
-        SongCard.querySelector(".SongMapper").innerText = data.metadata.songAuthorName;
-        SongCard.querySelector(".SongKey").innerText = data.id;
+        SongCard.querySelector(".SongArtist").innerText = data.metadata.levelAuthorName.replaceAll('\n', '').replaceAll('\r', '');
+        SongCard.querySelector(".SongName").innerText = data.metadata.songName.replaceAll('\n', '').replaceAll('\r', '');
+        SongCard.querySelector(".SongMapper").innerText = data.metadata.songAuthorName.replaceAll('\n', '').replaceAll('\r', '');
+        SongCard.querySelector(".SongKey").innerText = data.id.replaceAll('\n', '').replaceAll('\r', '');
         SongCard.querySelector(".SongLength").innerText = fancyTimeFormat(data.metadata.duration);
     } catch (error) {
         console.error(error);
@@ -62,13 +62,13 @@ function setPoolLoop(hash, diff, modifiers) {
     for (let i = 0; i < hash.length; i++) {
         setTimeout(function () {
             if (modifiers) {
-            setPool(hash[i], diff[i], modifiers[i]);
+                setPool(hash[i], diff[i], modifiers[i]);
             } else {
-            setPool(hash[i], diff[i]);
+                setPool(hash[i], diff[i]);
             }
         }, 100 * i);
     }
-    
+
     setTimeout(function () {
         document.getElementById("Songs").style.opacity = "1";
     }, 1500);
