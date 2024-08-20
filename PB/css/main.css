@@ -290,6 +290,7 @@ body {
 .SongCard {
   width: 520px;
   max-height: 114px;
+  border-radius: 15px;
   opacity: 0;
 }
 
