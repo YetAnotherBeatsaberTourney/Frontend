@@ -10,11 +10,14 @@
 <body class="BGImage">
 	<!--Topbar player-containers-->
 	<div class="MainClass">
-		<img src="./images/Background.png" class="Background">
+		<!--<img src="./images/Background.png" class="Background">-->
 		<div class="PlayerContainers" id="PlayerContainers">
 			<div class="Player1Container" id="Player1Container">
-				<span class="Player1Goal" id="Player1Goal">TO BEAT: 99.99%</span>
-				<span class="Player1Replay" id="Player1Replay">R</span>
+				<div style="display: flex;height: fit-content;flex-direction: column;">
+					<span class="Player1Goal" id="Player1Goal" style="opacity: 0;">TO BEAT: 0%</span>
+					<span class="Player1ReplayText" id="Player1ReplayText" style="opacity: 0;">REPLAY CALLED</span>
+				</div>
+				<span class="Player1ReplayBase" id="Player1ReplayBase">R</span>
 				<span class="Player1Score" id="Player1Score">0</span>
 				<b class="Player1Name" id="Player1Name">OK</b>
 				<img src="./images/Placeholder.png" class="Player1Image" id="Player1Image" />
@@ -26,8 +29,11 @@
 				<img src="./images/Placeholder.png" class="Player2Image" id="Player2Image" />
 				<b class="Player2Name" id="Player2Name">BOOMER</b>
 				<span class="Player2Score" id="Player2Score">0</span>
-				<span class="Player2Replay" id="Player2Replay">R</span>
-				<span class="Player2Goal" id="Player2Goal">TO BEAT: 99.99%</span>
+				<span class="Player2ReplayBase" id="Player2ReplayBase">R</span>
+				<div style="display: flex;height: fit-content;flex-direction: column;">
+					<span class="Player2Goal" id="Player2Goal" style="opacity: 0;">TO BEAT: 0%</span>
+					<span class="Player2ReplayText" id="Player2ReplayText" style="opacity: 0;">REPLAY CALLED</span>
+				</div>
 			</div>
 		</div>
 

@@ -1,4 +1,4 @@
-const relayIp = "ws://yabt.eu:2223";
+const relayIp = "wss://yabt.thnght.pro";
 
 let PlayerIDs = [];
 let PlayerImages = [];

@@ -1,4 +1,5 @@
-const relayIp = "ws://yabt.eu:2223";
+const relayIp = "wss://yabt.thnght.pro";
+// const relayIp = "wss://api.hawk.quest:2223";
 
 //Player data
 let playerNames = ["",""];
@@ -51,6 +52,7 @@ ws.onmessage = async function (event) {
 		if (jsonObj.command == "resetOverlay") {
 			document.getElementById("SongCard").style.opacity = 0;
 			document.getElementById("PlayerContainers").style.opacity = 0;
+			document.getElementById("PlayerBounds").style.opacity = 0;
 			document.getElementById("TugOfWar").style.opacity = 0;
 			document.getElementById("TextBox").style.opacity = 0;
 
